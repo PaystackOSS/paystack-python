@@ -505,7 +505,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Resource created |  -  |
+**200** | Resource created |  -  |
 **401** | Unauthorized operation |  -  |
 **0** | Server error |  -  |
 
