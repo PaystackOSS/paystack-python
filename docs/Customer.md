@@ -22,45 +22,22 @@ Create Customer
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Customer(api_client)
-    email = 'email_example' # str | Customer's email address
+email = 'email_example' # str | Customer's email address
 first_name = 'first_name_example' # str | Customer's first name (optional)
 last_name = 'last_name_example' # str | Customer's last name (optional)
 phone = 'phone_example' # str | Customer's phone number (optional)
 metadata = 'metadata_example' # str | Stringified JSON object of custom data (optional)
 
-    try:
-        # Create Customer
-        api_response = api_instance.create(email, first_name=first_name, last_name=last_name, phone=phone, metadata=metadata)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Customer->create: %s\n" % e)
-```
+# Create Customer
 
+response = paystack.Customer.create(email, first_name=first_name, last_name=last_name, phone=phone, metadata=metadata)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -104,41 +81,18 @@ Deactivate a customer's card
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+authorization_code = 'authorization_code_example' # str | Authorization code to be deactivated
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Customer(api_client)
-    authorization_code = 'authorization_code_example' # str | Authorization code to be deactivated
+# Deactivate Authorization
 
-    try:
-        # Deactivate Authorization
-        api_response = api_instance.deactivate_authorization(authorization_code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Customer->deactivate_authorization: %s\n" % e)
+response = paystack.Customer.deactivate_authorization(authorization_code)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -176,41 +130,18 @@ Fetch Customer
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+code = 'code_example' # str | 
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Customer(api_client)
-    code = 'code_example' # str | 
+# Fetch Customer
 
-    try:
-        # Fetch Customer
-        api_response = api_instance.fetch(code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Customer->fetch: %s\n" % e)
+response = paystack.Customer.fetch(code)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -251,32 +182,12 @@ List customers on your integration
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Customer(api_client)
-    use_cursor = True # bool |  (optional)
+use_cursor = True # bool |  (optional)
 next = 'next_example' # str |  (optional)
 previous = 'previous_example' # str |  (optional)
 _from = '_from_example' # str |  (optional)
@@ -284,14 +195,11 @@ to = 'to_example' # str |  (optional)
 per_page = 'per_page_example' # str |  (optional)
 page = 'page_example' # str |  (optional)
 
-    try:
-        # List Customers
-        api_response = api_instance.list(use_cursor=use_cursor, next=next, previous=previous, _from=_from, to=to, per_page=per_page, page=page)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Customer->list: %s\n" % e)
-```
+# List Customers
 
+response = paystack.Customer.list(use_cursor=use_cursor, next=next, previous=previous, _from=_from, to=to, per_page=per_page, page=page)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -338,42 +246,19 @@ Set customer's risk action by whitelisting or blacklisting the customer
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Customer(api_client)
-    customer = 'customer_example' # str | Customer's code, or email address
+customer = 'customer_example' # str | Customer's code, or email address
 risk_action = 'risk_action_example' # str | One of the possible risk actions [ default, allow, deny ]. allow to whitelist.  deny to blacklist. Customers start with a default risk action.  (optional)
 
-    try:
-        # White/blacklist Customer
-        api_response = api_instance.risk_action(customer, risk_action=risk_action)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Customer->risk_action: %s\n" % e)
-```
+# White/blacklist Customer
 
+response = paystack.Customer.risk_action(customer, risk_action=risk_action)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -412,45 +297,22 @@ Update Customer
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Customer(api_client)
-    code = 'code_example' # str | 
+code = 'code_example' # str | 
 first_name = 'first_name_example' # str | Customer's first name (optional)
 last_name = 'last_name_example' # str | Customer's last name (optional)
 phone = 'phone_example' # str | Customer's phone number (optional)
 metadata = 'metadata_example' # str | Stringified JSON object of custom data (optional)
 
-    try:
-        # Update Customer
-        api_response = api_instance.update(code, first_name=first_name, last_name=last_name, phone=phone, metadata=metadata)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Customer->update: %s\n" % e)
-```
+# Update Customer
 
+response = paystack.Customer.update(code, first_name=first_name, last_name=last_name, phone=phone, metadata=metadata)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -495,32 +357,12 @@ Validate a customer's identity
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Customer(api_client)
-    code = 'code_example' # str | 
+code = 'code_example' # str | 
 first_name = 'first_name_example' # str | Customer's first name
 last_name = 'last_name_example' # str | Customer's last name
 type = 'type_example' # str | Predefined types of identification.
@@ -530,14 +372,11 @@ bank_code = 'bank_code_example' # str | You can get the list of bank codes by ca
 account_number = 'account_number_example' # str | Customer's bank account number.
 value = 'value_example' # str | Customer's identification number. Required if type is bvn (optional)
 
-    try:
-        # Validate Customer
-        api_response = api_instance.validatte(code, first_name, last_name, type, country, bvn, bank_code, account_number, value=value)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Customer->validatte: %s\n" % e)
-```
+# Validate Customer
 
+response = paystack.Customer.validatte(code, first_name, last_name, type, country, bvn, bank_code, account_number, value=value)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes

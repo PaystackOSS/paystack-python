@@ -6,13 +6,14 @@
     The OpenAPI specification of the Paystack API that merchants and developers can harness to build financial solutions in Africa.  # noqa: E501
 
     The version of the OpenAPI document: 1.0.0
+    Contact: techsupport@paystack.com
 """
 
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "paystack"
-VERSION = "0.1.0"
+NAME = "paystacksdk"
+VERSION = "0.3.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -26,10 +27,12 @@ setup(
     name=NAME,
     version=VERSION,
     description="Paystack",
-    author="OpenAPI Generator community",
-    author_email="team@openapitools.org",
+    author="Paystack Integration",
+    author_email="techsupport@paystack.com",
     url="",
-    keywords=["OpenAPI", "OpenAPI-Generator", "Paystack"],
+    keywords=["Paystack", "Transaction", "Split Payment", "Customer", "Dedicated Virtual Account", "Subaccount",
+    "Plan", "Subscription", "Product", "Page", "Payment Request", "Settlement", "Transfer Recipient", "Transfer",
+    "Balance", "Charge", "Bulk Charge", "Integration", "Refund", "Dispute", "Verification"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,

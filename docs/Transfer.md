@@ -26,42 +26,19 @@ Initiate Bulk Transfer
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Transfer(api_client)
-    source = 'source_example' # str | Where should we transfer from? Only balance is allowed for now (optional)
+source = 'source_example' # str | Where should we transfer from? Only balance is allowed for now (optional)
 transfers = paystack.TransferInitiate() # list[TransferInitiate] | A list of transfer object. Each object should contain amount, recipient, and reference (optional)
 
-    try:
-        # Initiate Bulk Transfer
-        api_response = api_instance.bulk(source=source, transfers=transfers)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Transfer->bulk: %s\n" % e)
-```
+# Initiate Bulk Transfer
 
+response = paystack.Transfer.bulk(source=source, transfers=transfers)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -100,40 +77,17 @@ Disable OTP requirement for Transfers
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Transfer(api_client)
-    
-    try:
-        # Disable OTP requirement for Transfers
-        api_response = api_instance.disable_otp()
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Transfer->disable_otp: %s\n" % e)
+# Disable OTP requirement for Transfers
+
+response = paystack.Transfer.disable_otp()
+pprint(response)
 ```
-
 ### Parameters
 This endpoint does not need any parameter.
 
@@ -168,41 +122,18 @@ Finalize Disabling of OTP requirement for Transfers
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+otp = 'otp_example' # str | OTP sent to business phone to verify disabling OTP requirement
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Transfer(api_client)
-    otp = 'otp_example' # str | OTP sent to business phone to verify disabling OTP requirement
+# Finalize Disabling of OTP requirement for Transfers
 
-    try:
-        # Finalize Disabling of OTP requirement for Transfers
-        api_response = api_instance.disable_otp_finalize(otp)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Transfer->disable_otp_finalize: %s\n" % e)
+response = paystack.Transfer.disable_otp_finalize(otp)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -240,45 +171,22 @@ Export Transfers
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Transfer(api_client)
-    per_page = 56 # int | Number of records to fetch per page (optional)
+per_page = 56 # int | Number of records to fetch per page (optional)
 page = 56 # int | The section to retrieve (optional)
 status = 'status_example' # str |  (optional)
 _from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
 to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
-    try:
-        # Export Transfers
-        api_response = api_instance.download(per_page=per_page, page=page, status=status, _from=_from, to=to)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Transfer->download: %s\n" % e)
-```
+# Export Transfers
 
+response = paystack.Transfer.download(per_page=per_page, page=page, status=status, _from=_from, to=to)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -321,40 +229,17 @@ Enable OTP requirement for Transfers
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Transfer(api_client)
-    
-    try:
-        # Enable OTP requirement for Transfers
-        api_response = api_instance.enable_otp()
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Transfer->enable_otp: %s\n" % e)
+# Enable OTP requirement for Transfers
+
+response = paystack.Transfer.enable_otp()
+pprint(response)
 ```
-
 ### Parameters
 This endpoint does not need any parameter.
 
@@ -389,41 +274,18 @@ Fetch Transfer
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+code = 'code_example' # str | Transfer code
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Transfer(api_client)
-    code = 'code_example' # str | Transfer code
+# Fetch Transfer
 
-    try:
-        # Fetch Transfer
-        api_response = api_instance.fetch(code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Transfer->fetch: %s\n" % e)
+response = paystack.Transfer.fetch(code)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -462,42 +324,19 @@ Finalize Transfer
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Transfer(api_client)
-    transfer_code = 'transfer_code_example' # str | The transfer code you want to finalize
+transfer_code = 'transfer_code_example' # str | The transfer code you want to finalize
 otp = 'otp_example' # str | OTP sent to business phone to verify transfer
 
-    try:
-        # Finalize Transfer
-        api_response = api_instance.finalize(transfer_code, otp)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Transfer->finalize: %s\n" % e)
-```
+# Finalize Transfer
 
+response = paystack.Transfer.finalize(transfer_code, otp)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -536,46 +375,23 @@ Initiate Transfer
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Transfer(api_client)
-    source = 'source_example' # str | Where should we transfer from? Only balance is allowed for now
+source = 'source_example' # str | Where should we transfer from? Only balance is allowed for now
 amount = 'amount_example' # str | Amount to transfer in kobo if currency is NGN and pesewas if currency is GHS.
 recipient = 'recipient_example' # str | The transfer recipient's code
 reason = 'reason_example' # str | The reason or narration for the transfer. (optional)
 currency = 'currency_example' # str | Specify the currency of the transfer. Defaults to NGN. (optional)
 reference = 'reference_example' # str | If specified, the field should be a unique identifier (in lowercase) for the object.  Only -,_ and alphanumeric characters are allowed. (optional)
 
-    try:
-        # Initiate Transfer
-        api_response = api_instance.initiate(source, amount, recipient, reason=reason, currency=currency, reference=reference)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Transfer->initiate: %s\n" % e)
-```
+# Initiate Transfer
 
+response = paystack.Transfer.initiate(source, amount, recipient, reason=reason, currency=currency, reference=reference)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -618,45 +434,22 @@ List Transfers
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Transfer(api_client)
-    per_page = 56 # int | Number of records to fetch per page (optional)
+per_page = 56 # int | Number of records to fetch per page (optional)
 page = 56 # int | The section to retrieve (optional)
 status = 'status_example' # str |  (optional)
 _from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
 to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
-    try:
-        # List Transfers
-        api_response = api_instance.list(per_page=per_page, page=page, status=status, _from=_from, to=to)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Transfer->list: %s\n" % e)
-```
+# List Transfers
 
+response = paystack.Transfer.list(per_page=per_page, page=page, status=status, _from=_from, to=to)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -699,42 +492,19 @@ Resend OTP for Transfer
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Transfer(api_client)
-    transfer_code = 'transfer_code_example' # str | The transfer code that requires an OTP validation
+transfer_code = 'transfer_code_example' # str | The transfer code that requires an OTP validation
 reason = 'reason_example' # str | Either resend_otp or transfer
 
-    try:
-        # Resend OTP for Transfer
-        api_response = api_instance.resend_otp(transfer_code, reason)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Transfer->resend_otp: %s\n" % e)
-```
+# Resend OTP for Transfer
 
+response = paystack.Transfer.resend_otp(transfer_code, reason)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -773,41 +543,18 @@ Verify Transfer
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+reference = 'reference_example' # str | 
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Transfer(api_client)
-    reference = 'reference_example' # str | 
+# Verify Transfer
 
-    try:
-        # Verify Transfer
-        api_response = api_instance.verify(reference)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Transfer->verify: %s\n" % e)
+response = paystack.Transfer.verify(reference)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes

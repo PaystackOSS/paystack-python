@@ -18,45 +18,22 @@ Create Refund
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Refund(api_client)
-    transaction = 'transaction_example' # str | Transaction reference or id
+transaction = 'transaction_example' # str | Transaction reference or id
 amount = 56 # int | Amount ( in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR ) to be refunded to the customer.  Amount cannot be more than the original transaction amount (optional)
 currency = 'currency_example' # str | Three-letter ISO currency. Allowed values are NGN, GHS, ZAR or USD (optional)
 customer_note = 'customer_note_example' # str | Customer reason (optional)
 merchant_note = 'merchant_note_example' # str | Merchant reason (optional)
 
-    try:
-        # Create Refund
-        api_response = api_instance.create(transaction, amount=amount, currency=currency, customer_note=customer_note, merchant_note=merchant_note)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Refund->create: %s\n" % e)
-```
+# Create Refund
 
+response = paystack.Refund.create(transaction, amount=amount, currency=currency, customer_note=customer_note, merchant_note=merchant_note)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -98,41 +75,18 @@ Fetch Refund
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+id = 'id_example' # str | 
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Refund(api_client)
-    id = 'id_example' # str | 
+# Fetch Refund
 
-    try:
-        # Fetch Refund
-        api_response = api_instance.fetch(id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Refund->fetch: %s\n" % e)
+response = paystack.Refund.fetch(id)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -171,44 +125,21 @@ List Refunds
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Refund(api_client)
-    per_page = 56 # int | Number of records to fetch per page (optional)
+per_page = 56 # int | Number of records to fetch per page (optional)
 page = 56 # int | The section to retrieve (optional)
 _from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
 to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
-    try:
-        # List Refunds
-        api_response = api_instance.list(per_page=per_page, page=page, _from=_from, to=to)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Refund->list: %s\n" % e)
-```
+# List Refunds
 
+response = paystack.Refund.list(per_page=per_page, page=page, _from=_from, to=to)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes

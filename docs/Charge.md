@@ -22,41 +22,18 @@ Check pending charge
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+reference = 'reference_example' # str | 
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Charge(api_client)
-    reference = 'reference_example' # str | 
+# Check pending charge
 
-    try:
-        # Check pending charge
-        api_response = api_instance.check(reference)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Charge->check: %s\n" % e)
+response = paystack.Charge.check(reference)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -95,32 +72,12 @@ Create Charge
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Charge(api_client)
-    email = 'email_example' # str | Customer's email address (optional)
+email = 'email_example' # str | Customer's email address (optional)
 amount = 'amount_example' # str | Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR (optional)
 authorization_code = 'authorization_code_example' # str | An authorization code to charge. (optional)
 pin = 'pin_example' # str | 4-digit PIN (send with a non-reusable authorization code) (optional)
@@ -133,14 +90,11 @@ mobile_money = paystack.MobileMoney() # MobileMoney |  (optional)
 ussd = paystack.USSD() # USSD |  (optional)
 eft = paystack.EFT() # EFT |  (optional)
 
-    try:
-        # Create Charge
-        api_response = api_instance.create(email=email, amount=amount, authorization_code=authorization_code, pin=pin, reference=reference, birthday=birthday, device_id=device_id, metadata=metadata, bank=bank, mobile_money=mobile_money, ussd=ussd, eft=eft)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Charge->create: %s\n" % e)
-```
+# Create Charge
 
+response = paystack.Charge.create(email=email, amount=amount, authorization_code=authorization_code, pin=pin, reference=reference, birthday=birthday, device_id=device_id, metadata=metadata, bank=bank, mobile_money=mobile_money, ussd=ussd, eft=eft)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -189,45 +143,22 @@ Submit Address
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Charge(api_client)
-    address = 'address_example' # str | Customer's address
+address = 'address_example' # str | Customer's address
 city = 'city_example' # str | Customer's city
 state = 'state_example' # str | Customer's state
 zipcode = 'zipcode_example' # str | Customer's zipcode
 reference = 'reference_example' # str | The reference of the ongoing transaction
 
-    try:
-        # Submit Address
-        api_response = api_instance.submit_address(address, city, state, zipcode, reference)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Charge->submit_address: %s\n" % e)
-```
+# Submit Address
 
+response = paystack.Charge.submit_address(address, city, state, zipcode, reference)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -269,42 +200,19 @@ Submit Birthday
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Charge(api_client)
-    birthday = 'birthday_example' # str | Customer's birthday in the format YYYY-MM-DD e.g 2016-09-21
+birthday = 'birthday_example' # str | Customer's birthday in the format YYYY-MM-DD e.g 2016-09-21
 reference = 'reference_example' # str | The reference of the ongoing transaction
 
-    try:
-        # Submit Birthday
-        api_response = api_instance.submit_birthday(birthday, reference)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Charge->submit_birthday: %s\n" % e)
-```
+# Submit Birthday
 
+response = paystack.Charge.submit_birthday(birthday, reference)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -343,42 +251,19 @@ Submit OTP
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Charge(api_client)
-    otp = 'otp_example' # str | Customer's OTP
+otp = 'otp_example' # str | Customer's OTP
 reference = 'reference_example' # str | The reference of the ongoing transaction
 
-    try:
-        # Submit OTP
-        api_response = api_instance.submit_otp(otp, reference)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Charge->submit_otp: %s\n" % e)
-```
+# Submit OTP
 
+response = paystack.Charge.submit_otp(otp, reference)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -417,42 +302,19 @@ Submit Phone
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Charge(api_client)
-    phone = 'phone_example' # str | Customer's mobile number
+phone = 'phone_example' # str | Customer's mobile number
 reference = 'reference_example' # str | The reference of the ongoing transaction
 
-    try:
-        # Submit Phone
-        api_response = api_instance.submit_phone(phone, reference)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Charge->submit_phone: %s\n" % e)
-```
+# Submit Phone
 
+response = paystack.Charge.submit_phone(phone, reference)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -491,42 +353,19 @@ Submit PIN
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Charge(api_client)
-    pin = 'pin_example' # str | Customer's PIN
+pin = 'pin_example' # str | Customer's PIN
 reference = 'reference_example' # str | Transaction reference that requires the PIN
 
-    try:
-        # Submit PIN
-        api_response = api_instance.submit_pin(pin, reference)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Charge->submit_pin: %s\n" % e)
-```
+# Submit PIN
 
+response = paystack.Charge.submit_pin(pin, reference)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes

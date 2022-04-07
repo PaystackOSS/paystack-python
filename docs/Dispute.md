@@ -23,45 +23,22 @@ Export Disputes
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Dispute(api_client)
-    per_page = 56 # int | Number of records to fetch per page (optional)
+per_page = 56 # int | Number of records to fetch per page (optional)
 page = 56 # int | The section to retrieve (optional)
 status = 'status_example' # str |  (optional)
 _from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
 to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
-    try:
-        # Export Disputes
-        api_response = api_instance.download(per_page=per_page, page=page, status=status, _from=_from, to=to)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Dispute->download: %s\n" % e)
-```
+# Export Disputes
 
+response = paystack.Dispute.download(per_page=per_page, page=page, status=status, _from=_from, to=to)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -104,32 +81,12 @@ Add Evidence
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Dispute(api_client)
-    id = 'id_example' # str | Dispute ID
+id = 'id_example' # str | Dispute ID
 customer_email = 'customer_email_example' # str | Customer email
 customer_name = 'customer_name_example' # str | Customer name
 customer_phone = 'customer_phone_example' # str | Customer mobile number
@@ -137,14 +94,11 @@ service_details = 'service_details_example' # str | Details of service offered
 delivery_address = 'delivery_address_example' # str | Delivery address (optional)
 delivery_date = '2013-10-20T19:20:30+01:00' # datetime | ISO 8601 representation of delivery date (YYYY-MM-DD) (optional)
 
-    try:
-        # Add Evidence
-        api_response = api_instance.evidence(id, customer_email, customer_name, customer_phone, service_details, delivery_address=delivery_address, delivery_date=delivery_date)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Dispute->evidence: %s\n" % e)
-```
+# Add Evidence
 
+response = paystack.Dispute.evidence(id, customer_email, customer_name, customer_phone, service_details, delivery_address=delivery_address, delivery_date=delivery_date)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -188,41 +142,18 @@ Fetch Dispute
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+id = 'id_example' # str | Dispute ID
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Dispute(api_client)
-    id = 'id_example' # str | Dispute ID
+# Fetch Dispute
 
-    try:
-        # Fetch Dispute
-        api_response = api_instance.fetch(id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Dispute->fetch: %s\n" % e)
+response = paystack.Dispute.fetch(id)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -261,46 +192,23 @@ List Disputes
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Dispute(api_client)
-    per_page = 56 # int | Number of records to fetch per page (optional)
+per_page = 56 # int | Number of records to fetch per page (optional)
 page = 56 # int | The section to retrieve (optional)
 status = 'status_example' # str | Dispute Status. Acceptable values are awaiting-merchant-feedback, awaiting-bank-feedback, pending, resolved (optional)
 transaction = 'transaction_example' # str | Transaction ID (optional)
 _from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
 to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
-    try:
-        # List Disputes
-        api_response = api_instance.list(per_page=per_page, page=page, status=status, transaction=transaction, _from=_from, to=to)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Dispute->list: %s\n" % e)
-```
+# List Disputes
 
+response = paystack.Dispute.list(per_page=per_page, page=page, status=status, transaction=transaction, _from=_from, to=to)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -344,46 +252,23 @@ Resolve a Dispute
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Dispute(api_client)
-    id = 'id_example' # str | Dispute ID
+id = 'id_example' # str | Dispute ID
 resolution = 'resolution_example' # str | Dispute resolution. Accepted values, merchant-accepted, declined
 message = 'message_example' # str | Reason for resolving
 refund_amount = 'refund_amount_example' # str | The amount to refund, in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR
 uploaded_filename = 'uploaded_filename_example' # str | Filename of attachment returned via response from the Dispute upload URL
 evidence = 56 # int | Evidence Id for fraud claims (optional)
 
-    try:
-        # Resolve a Dispute
-        api_response = api_instance.resolve(id, resolution, message, refund_amount, uploaded_filename, evidence=evidence)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Dispute->resolve: %s\n" % e)
-```
+# Resolve a Dispute
 
+response = paystack.Dispute.resolve(id, resolution, message, refund_amount, uploaded_filename, evidence=evidence)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -427,41 +312,18 @@ List Transaction Disputes
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+id = 'id_example' # str | Transaction ID
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Dispute(api_client)
-    id = 'id_example' # str | Transaction ID
+# List Transaction Disputes
 
-    try:
-        # List Transaction Disputes
-        api_response = api_instance.transaction(id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Dispute->transaction: %s\n" % e)
+response = paystack.Dispute.transaction(id)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -500,43 +362,20 @@ Update Dispute
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Dispute(api_client)
-    id = 'id_example' # str | Dispute ID
+id = 'id_example' # str | Dispute ID
 refund_amount = 'refund_amount_example' # str | The amount to refund, in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR
 uploaded_filename = 'uploaded_filename_example' # str | Filename of attachment returned via response from the Dispute upload URL (optional)
 
-    try:
-        # Update Dispute
-        api_response = api_instance.update(id, refund_amount, uploaded_filename=uploaded_filename)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Dispute->update: %s\n" % e)
-```
+# Update Dispute
 
+response = paystack.Dispute.update(id, refund_amount, uploaded_filename=uploaded_filename)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -577,41 +416,18 @@ Get Upload URL
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+id = 'id_example' # str | Dispute ID
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Dispute(api_client)
-    id = 'id_example' # str | Dispute ID
+# Get Upload URL
 
-    try:
-        # Get Upload URL
-        api_response = api_instance.upload_url(id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Dispute->upload_url: %s\n" % e)
+response = paystack.Dispute.upload_url(id)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes

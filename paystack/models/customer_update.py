@@ -6,6 +6,7 @@
     The OpenAPI specification of the Paystack API that merchants and developers can harness to build financial solutions in Africa.  # noqa: E501
 
     The version of the OpenAPI document: 1.0.0
+    Contact: techsupport@paystack.com
 """
 
 

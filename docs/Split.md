@@ -21,43 +21,20 @@ Add Subaccount to Split
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Split(api_client)
-    id = 'application/json' # str | 
+id = 'application/json' # str | 
 subaccount = 'subaccount_example' # str | Subaccount code of the customer or partner (optional)
 share = 'share_example' # str | The percentage or flat quota of the customer or partner (optional)
 
-    try:
-        # Add Subaccount to Split
-        api_response = api_instance.add_subaccount(id, subaccount=subaccount, share=share)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Split->add_subaccount: %s\n" % e)
-```
+# Add Subaccount to Split
 
+response = paystack.Split.add_subaccount(id, subaccount=subaccount, share=share)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -97,46 +74,23 @@ Create Split
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Split(api_client)
-    name = 'name_example' # str | Name of the transaction split
+name = 'name_example' # str | Name of the transaction split
 type = 'type_example' # str | The type of transaction split you want to create.
 subaccounts = paystack.SplitSubaccounts() # list[SplitSubaccounts] | A list of object containing subaccount code and number of shares
 currency = 'currency_example' # str | The transaction currency
 bearer_type = 'bearer_type_example' # str | This allows you specify how the transaction charge should be processed (optional)
 bearer_subaccount = 'bearer_subaccount_example' # str | This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type (optional)
 
-    try:
-        # Create Split
-        api_response = api_instance.create(name, type, subaccounts, currency, bearer_type=bearer_type, bearer_subaccount=bearer_subaccount)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Split->create: %s\n" % e)
-```
+# Create Split
 
+response = paystack.Split.create(name, type, subaccounts, currency, bearer_type=bearer_type, bearer_subaccount=bearer_subaccount)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -179,41 +133,18 @@ Fetch Split
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+id = 'id_example' # str | 
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Split(api_client)
-    id = 'id_example' # str | 
+# Fetch Split
 
-    try:
-        # Fetch Split
-        api_response = api_instance.fetch(id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Split->fetch: %s\n" % e)
+response = paystack.Split.fetch(id)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -252,32 +183,12 @@ List/Search Splits
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Split(api_client)
-    name = 'name_example' # str |  (optional)
+name = 'name_example' # str |  (optional)
 active = 'active_example' # str |  (optional)
 sort_by = 'sort_by_example' # str |  (optional)
 _from = '_from_example' # str |  (optional)
@@ -285,14 +196,11 @@ to = 'to_example' # str |  (optional)
 per_page = 'per_page_example' # str |  (optional)
 page = 'page_example' # str |  (optional)
 
-    try:
-        # List/Search Splits
-        api_response = api_instance.list(name=name, active=active, sort_by=sort_by, _from=_from, to=to, per_page=per_page, page=page)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Split->list: %s\n" % e)
-```
+# List/Search Splits
 
+response = paystack.Split.list(name=name, active=active, sort_by=sort_by, _from=_from, to=to, per_page=per_page, page=page)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -337,43 +245,20 @@ Remove Subaccount from split
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Split(api_client)
-    id = 'id_example' # str | 
+id = 'id_example' # str | 
 subaccount = 'subaccount_example' # str | Subaccount code of the customer or partner (optional)
 share = 'share_example' # str | The percentage or flat quota of the customer or partner (optional)
 
-    try:
-        # Remove Subaccount from split
-        api_response = api_instance.remove_subaccount(id, subaccount=subaccount, share=share)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Split->remove_subaccount: %s\n" % e)
-```
+# Remove Subaccount from split
 
+response = paystack.Split.remove_subaccount(id, subaccount=subaccount, share=share)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -413,45 +298,22 @@ Update Split
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Split(api_client)
-    id = 'id_example' # str | 
+id = 'id_example' # str | 
 name = 'name_example' # str | Name of the transaction split (optional)
 active = True # bool | Toggle status of split. When true, the split is active, else it's inactive (optional)
 bearer_type = 'bearer_type_example' # str | This allows you specify how the transaction charge should be processed (optional)
 bearer_subaccount = 'bearer_subaccount_example' # str | This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type (optional)
 
-    try:
-        # Update Split
-        api_response = api_instance.update(id, name=name, active=active, bearer_type=bearer_type, bearer_subaccount=bearer_subaccount)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Split->update: %s\n" % e)
-```
+# Update Split
 
+response = paystack.Split.update(id, name=name, active=active, bearer_type=bearer_type, bearer_subaccount=bearer_subaccount)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes

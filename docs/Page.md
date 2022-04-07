@@ -21,42 +21,19 @@ Add Products
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Page(api_client)
-    id = 'id_example' # str | 
+id = 'id_example' # str | 
 product = 'product_example' # list[str] | IDs of all products to add to a page
 
-    try:
-        # Add Products
-        api_response = api_instance.add_products(id, product)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Page->add_products: %s\n" % e)
-```
+# Add Products
 
+response = paystack.Page.add_products(id, product)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -95,41 +72,18 @@ Check Slug Availability
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+slug = 'slug_example' # str | 
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Page(api_client)
-    slug = 'slug_example' # str | 
+# Check Slug Availability
 
-    try:
-        # Check Slug Availability
-        api_response = api_instance.check_slug_availability(slug)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Page->check_slug_availability: %s\n" % e)
+response = paystack.Page.check_slug_availability(slug)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -168,32 +122,12 @@ Create Page
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Page(api_client)
-    name = 'name_example' # str | Name of page
+name = 'name_example' # str | Name of page
 description = 'description_example' # str | The description of the page (optional)
 amount = 56 # int | Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR (optional)
 slug = 'slug_example' # str | URL slug you would like to be associated with this page. Page will be accessible at https://paystack.com/pay/[slug] (optional)
@@ -201,14 +135,11 @@ metadata = 'metadata_example' # str | Stringified JSON object of custom data (op
 redirect_url = 'redirect_url_example' # str | If you would like Paystack to redirect to a URL upon successful payment, specify the URL here. (optional)
 custom_fields = None # list[object] | If you would like to accept custom fields, specify them here. (optional)
 
-    try:
-        # Create Page
-        api_response = api_instance.create(name, description=description, amount=amount, slug=slug, metadata=metadata, redirect_url=redirect_url, custom_fields=custom_fields)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Page->create: %s\n" % e)
-```
+# Create Page
 
+response = paystack.Page.create(name, description=description, amount=amount, slug=slug, metadata=metadata, redirect_url=redirect_url, custom_fields=custom_fields)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -252,41 +183,18 @@ Fetch Page
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+id = 'id_example' # str | 
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Page(api_client)
-    id = 'id_example' # str | 
+# Fetch Page
 
-    try:
-        # Fetch Page
-        api_response = api_instance.fetch(id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Page->fetch: %s\n" % e)
+response = paystack.Page.fetch(id)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -325,44 +233,21 @@ List Pages
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Page(api_client)
-    per_page = 56 # int | Number of records to fetch per page (optional)
+per_page = 56 # int | Number of records to fetch per page (optional)
 page = 56 # int | The section to retrieve (optional)
 _from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
 to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
-    try:
-        # List Pages
-        api_response = api_instance.list(per_page=per_page, page=page, _from=_from, to=to)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Page->list: %s\n" % e)
-```
+# List Pages
 
+response = paystack.Page.list(per_page=per_page, page=page, _from=_from, to=to)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -404,45 +289,22 @@ Update Page
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Page(api_client)
-    id = 'id_example' # str | 
+id = 'id_example' # str | 
 name = 'name_example' # str | Name of page (optional)
 description = 'description_example' # str | The description of the page (optional)
 amount = 56 # int | Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR (optional)
 active = True # bool | Set to false to deactivate page url (optional)
 
-    try:
-        # Update Page
-        api_response = api_instance.update(id, name=name, description=description, amount=amount, active=active)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Page->update: %s\n" % e)
-```
+# Update Page
 
+response = paystack.Page.update(id, name=name, description=description, amount=amount, active=active)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes

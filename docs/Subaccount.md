@@ -19,32 +19,12 @@ Create Subaccount
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Subaccount(api_client)
-    business_name = 'business_name_example' # str | Name of business for subaccount
+business_name = 'business_name_example' # str | Name of business for subaccount
 settlement_bank = 'settlement_bank_example' # str | Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.
 account_number = 'account_number_example' # str | Bank account number
 percentage_charge = 3.4 # float | Customer's phone number
@@ -54,14 +34,11 @@ primary_contact_name = 'primary_contact_name_example' # str | The name of the co
 primary_contact_phone = 'primary_contact_phone_example' # str | A phone number to call for this subaccount (optional)
 metadata = 'metadata_example' # str | Stringified JSON object of custom data (optional)
 
-    try:
-        # Create Subaccount
-        api_response = api_instance.create(business_name, settlement_bank, account_number, percentage_charge, description=description, primary_contact_email=primary_contact_email, primary_contact_name=primary_contact_name, primary_contact_phone=primary_contact_phone, metadata=metadata)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Subaccount->create: %s\n" % e)
-```
+# Create Subaccount
 
+response = paystack.Subaccount.create(business_name, settlement_bank, account_number, percentage_charge, description=description, primary_contact_email=primary_contact_email, primary_contact_name=primary_contact_name, primary_contact_phone=primary_contact_phone, metadata=metadata)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -107,41 +84,18 @@ Fetch Subaccount
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+code = 'code_example' # str | 
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Subaccount(api_client)
-    code = 'code_example' # str | 
+# Fetch Subaccount
 
-    try:
-        # Fetch Subaccount
-        api_response = api_instance.fetch(code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Subaccount->fetch: %s\n" % e)
+response = paystack.Subaccount.fetch(code)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -180,44 +134,21 @@ List Subaccounts
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Subaccount(api_client)
-    per_page = 56 # int | Number of records to fetch per page (optional)
+per_page = 56 # int | Number of records to fetch per page (optional)
 page = 56 # int | The section to retrieve (optional)
 _from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
 to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
-    try:
-        # List Subaccounts
-        api_response = api_instance.list(per_page=per_page, page=page, _from=_from, to=to)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Subaccount->list: %s\n" % e)
-```
+# List Subaccounts
 
+response = paystack.Subaccount.list(per_page=per_page, page=page, _from=_from, to=to)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -259,32 +190,12 @@ Update Subaccount
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Subaccount(api_client)
-    code = 'code_example' # str | 
+code = 'code_example' # str | 
 business_name = 'business_name_example' # str | Name of business for subaccount (optional)
 settlement_bank = 'settlement_bank_example' # str | Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint. (optional)
 account_number = 'account_number_example' # str | Bank account number (optional)
@@ -296,14 +207,11 @@ primary_contact_name = 'primary_contact_name_example' # str | The name of the co
 primary_contact_phone = 'primary_contact_phone_example' # str | A phone number to call for this subaccount (optional)
 metadata = 'metadata_example' # str | Stringified JSON object of custom data (optional)
 
-    try:
-        # Update Subaccount
-        api_response = api_instance.update(code, business_name=business_name, settlement_bank=settlement_bank, account_number=account_number, active=active, percentage_charge=percentage_charge, description=description, primary_contact_email=primary_contact_email, primary_contact_name=primary_contact_name, primary_contact_phone=primary_contact_phone, metadata=metadata)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Subaccount->update: %s\n" % e)
-```
+# Update Subaccount
 
+response = paystack.Subaccount.update(code, business_name=business_name, settlement_bank=settlement_bank, account_number=account_number, active=active, percentage_charge=percentage_charge, description=description, primary_contact_email=primary_contact_email, primary_contact_name=primary_contact_name, primary_contact_phone=primary_contact_phone, metadata=metadata)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes

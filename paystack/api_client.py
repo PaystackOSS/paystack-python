@@ -5,6 +5,7 @@
     The OpenAPI specification of the Paystack API that merchants and developers can harness to build financial solutions in Africa.  # noqa: E501
 
     The version of the OpenAPI document: 1.0.0
+    Contact: techsupport@paystack.com
 """
 
 from __future__ import absolute_import
@@ -70,7 +71,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'OpenAPI-Generator/0.1.0/python'
+        self.user_agent = 'OpenAPI-Generator/0.3.0/python'
         self.client_side_validation = configuration.client_side_validation
 
     def __enter__(self):

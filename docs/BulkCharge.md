@@ -21,41 +21,18 @@ Fetch Charges in a Batch
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+code = 'code_example' # str | Batch code
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.BulkCharge(api_client)
-    code = 'code_example' # str | Batch code
+# Fetch Charges in a Batch
 
-    try:
-        # Fetch Charges in a Batch
-        api_response = api_instance.charges(code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling BulkCharge->charges: %s\n" % e)
+response = paystack.BulkCharge.charges(code)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -94,41 +71,18 @@ Fetch Bulk Charge Batch
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+code = 'code_example' # str | Batch code
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.BulkCharge(api_client)
-    code = 'code_example' # str | Batch code
+# Fetch Bulk Charge Batch
 
-    try:
-        # Fetch Bulk Charge Batch
-        api_response = api_instance.fetch(code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling BulkCharge->fetch: %s\n" % e)
+response = paystack.BulkCharge.fetch(code)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -167,40 +121,17 @@ Initiate Bulk Charge
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.BulkCharge(api_client)
-    
-    try:
-        # Initiate Bulk Charge
-        api_response = api_instance.initiate()
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling BulkCharge->initiate: %s\n" % e)
+# Initiate Bulk Charge
+
+response = paystack.BulkCharge.initiate()
+pprint(response)
 ```
-
 ### Parameters
 This endpoint does not need any parameter.
 
@@ -235,44 +166,21 @@ List Bulk Charge Batches
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.BulkCharge(api_client)
-    per_page = 56 # int | Number of records to fetch per page (optional)
+per_page = 56 # int | Number of records to fetch per page (optional)
 page = 56 # int | The section to retrieve (optional)
 _from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
 to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
-    try:
-        # List Bulk Charge Batches
-        api_response = api_instance.list(per_page=per_page, page=page, _from=_from, to=to)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling BulkCharge->list: %s\n" % e)
-```
+# List Bulk Charge Batches
 
+response = paystack.BulkCharge.list(per_page=per_page, page=page, _from=_from, to=to)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -314,41 +222,18 @@ Pause Bulk Charge Batch
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+code = 'code_example' # str | Batch code
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.BulkCharge(api_client)
-    code = 'code_example' # str | Batch code
+# Pause Bulk Charge Batch
 
-    try:
-        # Pause Bulk Charge Batch
-        api_response = api_instance.pause(code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling BulkCharge->pause: %s\n" % e)
+response = paystack.BulkCharge.pause(code)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -387,41 +272,18 @@ Resume Bulk Charge Batch
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+code = 'code_example' # str | Batch code
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.BulkCharge(api_client)
-    code = 'code_example' # str | Batch code
+# Resume Bulk Charge Batch
 
-    try:
-        # Resume Bulk Charge Batch
-        api_response = api_instance.resume(code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling BulkCharge->resume: %s\n" % e)
+response = paystack.BulkCharge.resume(code)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes

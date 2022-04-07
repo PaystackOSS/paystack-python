@@ -24,41 +24,18 @@ Archive Payment Request
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+id = 'id_example' # str | 
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.PaymentRequest(api_client)
-    id = 'id_example' # str | 
+# Archive Payment Request
 
-    try:
-        # Archive Payment Request
-        api_response = api_instance.archive(id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PaymentRequest->archive: %s\n" % e)
+response = paystack.PaymentRequest.archive(id)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -96,32 +73,12 @@ Create Payment Request
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.PaymentRequest(api_client)
-    customer = 'customer_example' # str | Customer id or code
+customer = 'customer_example' # str | Customer id or code
 amount = 56 # int | Payment request amount. Only useful if line items and tax values are ignored.  The endpoint will throw a friendly warning if neither is available. (optional)
 currency = 'currency_example' # str | Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN (optional)
 due_date = '2013-10-20T19:20:30+01:00' # datetime | ISO 8601 representation of request due date (optional)
@@ -134,14 +91,11 @@ has_invoice = None # list[object] | Set to true to create a draft invoice (adds 
 invoice_number = 56 # int | Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field is to help  override whatever value Paystack decides. Auto increment for subsequent invoices continue from this point. (optional)
 split_code = 'split_code_example' # str | The split code of the transaction split. (optional)
 
-    try:
-        # Create Payment Request
-        api_response = api_instance.create(customer, amount=amount, currency=currency, due_date=due_date, description=description, line_items=line_items, tax=tax, send_notification=send_notification, draft=draft, has_invoice=has_invoice, invoice_number=invoice_number, split_code=split_code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PaymentRequest->create: %s\n" % e)
-```
+# Create Payment Request
 
+response = paystack.PaymentRequest.create(customer, amount=amount, currency=currency, due_date=due_date, description=description, line_items=line_items, tax=tax, send_notification=send_notification, draft=draft, has_invoice=has_invoice, invoice_number=invoice_number, split_code=split_code)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -190,41 +144,18 @@ Fetch Payment Request
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+id = 'id_example' # str | 
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.PaymentRequest(api_client)
-    id = 'id_example' # str | 
+# Fetch Payment Request
 
-    try:
-        # Fetch Payment Request
-        api_response = api_instance.fetch(id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PaymentRequest->fetch: %s\n" % e)
+response = paystack.PaymentRequest.fetch(id)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -263,41 +194,18 @@ Finalize Payment Request
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+id = 'id_example' # str | 
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.PaymentRequest(api_client)
-    id = 'id_example' # str | 
+# Finalize Payment Request
 
-    try:
-        # Finalize Payment Request
-        api_response = api_instance.finalize(id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PaymentRequest->finalize: %s\n" % e)
+response = paystack.PaymentRequest.finalize(id)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -335,32 +243,12 @@ List Payment Request
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.PaymentRequest(api_client)
-    per_page = 56 # int | Number of records to fetch per page (optional)
+per_page = 56 # int | Number of records to fetch per page (optional)
 page = 56 # int | The section to retrieve (optional)
 customer = 'customer_example' # str | Customer ID (optional)
 status = 'status_example' # str | Invoice status to filter (optional)
@@ -368,14 +256,11 @@ currency = 'currency_example' # str | If your integration supports more than one
 _from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
 to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
-    try:
-        # List Payment Request
-        api_response = api_instance.list(per_page=per_page, page=page, customer=customer, status=status, currency=currency, _from=_from, to=to)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PaymentRequest->list: %s\n" % e)
-```
+# List Payment Request
 
+response = paystack.PaymentRequest.list(per_page=per_page, page=page, customer=customer, status=status, currency=currency, _from=_from, to=to)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -420,41 +305,18 @@ Send Notification
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+id = 'id_example' # str | 
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.PaymentRequest(api_client)
-    id = 'id_example' # str | 
+# Send Notification
 
-    try:
-        # Send Notification
-        api_response = api_instance.notify(id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PaymentRequest->notify: %s\n" % e)
+response = paystack.PaymentRequest.notify(id)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -492,40 +354,17 @@ Payment Request Total
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.PaymentRequest(api_client)
-    
-    try:
-        # Payment Request Total
-        api_response = api_instance.totals()
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PaymentRequest->totals: %s\n" % e)
+# Payment Request Total
+
+response = paystack.PaymentRequest.totals()
+pprint(response)
 ```
-
 ### Parameters
 This endpoint does not need any parameter.
 
@@ -561,32 +400,12 @@ Update Payment Request
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.PaymentRequest(api_client)
-    id = 'id_example' # str | 
+id = 'id_example' # str | 
 customer = 'customer_example' # str | Customer id or code (optional)
 amount = 56 # int | Payment request amount. Only useful if line items and tax values are ignored.  The endpoint will throw a friendly warning if neither is available. (optional)
 currency = 'currency_example' # str | Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN (optional)
@@ -600,14 +419,11 @@ has_invoice = None # list[object] | Set to true to create a draft invoice (adds 
 invoice_number = 56 # int | Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field is to help  override whatever value Paystack decides. Auto increment for subsequent invoices continue from this point. (optional)
 split_code = 'split_code_example' # str | The split code of the transaction split. (optional)
 
-    try:
-        # Update Payment Request
-        api_response = api_instance.update(id, customer=customer, amount=amount, currency=currency, due_date=due_date, description=description, line_items=line_items, tax=tax, send_notification=send_notification, draft=draft, has_invoice=has_invoice, invoice_number=invoice_number, split_code=split_code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PaymentRequest->update: %s\n" % e)
-```
+# Update Payment Request
 
+response = paystack.PaymentRequest.update(id, customer=customer, amount=amount, currency=currency, due_date=due_date, description=description, line_items=line_items, tax=tax, send_notification=send_notification, draft=draft, has_invoice=has_invoice, invoice_number=invoice_number, split_code=split_code)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -658,41 +474,18 @@ Verify Payment Request
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+id = 'id_example' # str | 
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.PaymentRequest(api_client)
-    id = 'id_example' # str | 
+# Verify Payment Request
 
-    try:
-        # Verify Payment Request
-        api_response = api_instance.verify(id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PaymentRequest->verify: %s\n" % e)
+response = paystack.PaymentRequest.verify(id)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes

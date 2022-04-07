@@ -22,43 +22,20 @@ Split Dedicated Account Transaction
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.DedicatedVirtualAccount(api_client)
-    account_number = 'account_number_example' # str | Valid Dedicated virtual account
+account_number = 'account_number_example' # str | Valid Dedicated virtual account
 subaccount = 'subaccount_example' # str | Subaccount code of the account you want to split the transaction with (optional)
 split_code = 'split_code_example' # str | Split code consisting of the lists of accounts you want to split the transaction with (optional)
 
-    try:
-        # Split Dedicated Account Transaction
-        api_response = api_instance.add_split(account_number, subaccount=subaccount, split_code=split_code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling DedicatedVirtualAccount->add_split: %s\n" % e)
-```
+# Split Dedicated Account Transaction
 
+response = paystack.DedicatedVirtualAccount.add_split(account_number, subaccount=subaccount, split_code=split_code)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -98,40 +75,17 @@ Fetch Bank Providers
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.DedicatedVirtualAccount(api_client)
-    
-    try:
-        # Fetch Bank Providers
-        api_response = api_instance.available_providers()
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling DedicatedVirtualAccount->available_providers: %s\n" % e)
+# Fetch Bank Providers
+
+response = paystack.DedicatedVirtualAccount.available_providers()
+pprint(response)
 ```
-
 ### Parameters
 This endpoint does not need any parameter.
 
@@ -167,44 +121,21 @@ Create Dedicated Account
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.DedicatedVirtualAccount(api_client)
-    customer = 'customer_example' # str | Customer ID or code
+customer = 'customer_example' # str | Customer ID or code
 preferred_bank = 'preferred_bank_example' # str | The bank slug for preferred bank. To get a list of available banks, use the List Providers endpoint (optional)
 subaccount = 'subaccount_example' # str | Subaccount code of the account you want to split the transaction with (optional)
 split_code = 'split_code_example' # str | Split code consisting of the lists of accounts you want to split the transaction with (optional)
 
-    try:
-        # Create Dedicated Account
-        api_response = api_instance.create(customer, preferred_bank=preferred_bank, subaccount=subaccount, split_code=split_code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling DedicatedVirtualAccount->create: %s\n" % e)
-```
+# Create Dedicated Account
 
+response = paystack.DedicatedVirtualAccount.create(customer, preferred_bank=preferred_bank, subaccount=subaccount, split_code=split_code)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -245,41 +176,18 @@ Deactivate Dedicated Account
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+account_id = 'account_id_example' # str | 
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.DedicatedVirtualAccount(api_client)
-    account_id = 'account_id_example' # str | 
+# Deactivate Dedicated Account
 
-    try:
-        # Deactivate Dedicated Account
-        api_response = api_instance.deactivate(account_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling DedicatedVirtualAccount->deactivate: %s\n" % e)
+response = paystack.DedicatedVirtualAccount.deactivate(account_id)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -318,41 +226,18 @@ Fetch Dedicated Account
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+account_id = 'account_id_example' # str | 
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.DedicatedVirtualAccount(api_client)
-    account_id = 'account_id_example' # str | 
+# Fetch Dedicated Account
 
-    try:
-        # Fetch Dedicated Account
-        api_response = api_instance.fetch(account_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling DedicatedVirtualAccount->fetch: %s\n" % e)
+response = paystack.DedicatedVirtualAccount.fetch(account_id)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -391,32 +276,12 @@ List Dedicated Accounts
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.DedicatedVirtualAccount(api_client)
-    account_number = 'account_number_example' # str |  (optional)
+account_number = 'account_number_example' # str |  (optional)
 customer = 'customer_example' # str |  (optional)
 active = True # bool |  (optional)
 currency = 'currency_example' # str |  (optional)
@@ -425,14 +290,11 @@ bank_id = 'bank_id_example' # str |  (optional)
 per_page = 'per_page_example' # str |  (optional)
 page = 'page_example' # str |  (optional)
 
-    try:
-        # List Dedicated Accounts
-        api_response = api_instance.list(account_number=account_number, customer=customer, active=active, currency=currency, provider_slug=provider_slug, bank_id=bank_id, per_page=per_page, page=page)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling DedicatedVirtualAccount->list: %s\n" % e)
-```
+# List Dedicated Accounts
 
+response = paystack.DedicatedVirtualAccount.list(account_number=account_number, customer=customer, active=active, currency=currency, provider_slug=provider_slug, bank_id=bank_id, per_page=per_page, page=page)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -478,43 +340,20 @@ Remove Split from Dedicated Account
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.DedicatedVirtualAccount(api_client)
-    account_number = 'account_number_example' # str | Valid Dedicated virtual account
+account_number = 'account_number_example' # str | Valid Dedicated virtual account
 subaccount = 'subaccount_example' # str | Subaccount code of the account you want to split the transaction with (optional)
 split_code = 'split_code_example' # str | Split code consisting of the lists of accounts you want to split the transaction with (optional)
 
-    try:
-        # Remove Split from Dedicated Account
-        api_response = api_instance.remove_split(account_number, subaccount=subaccount, split_code=split_code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling DedicatedVirtualAccount->remove_split: %s\n" % e)
-```
+# Remove Split from Dedicated Account
 
+response = paystack.DedicatedVirtualAccount.remove_split(account_number, subaccount=subaccount, split_code=split_code)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes

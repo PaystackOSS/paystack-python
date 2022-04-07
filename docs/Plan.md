@@ -19,32 +19,12 @@ Create Plan
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Plan(api_client)
-    name = 'name_example' # str | Name of plan
+name = 'name_example' # str | Name of plan
 amount = 56 # int | Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR
 interval = 'interval_example' # str | Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually
 description = True # bool | A description for this plan (optional)
@@ -53,14 +33,11 @@ send_sms = True # bool | Set to false if you don't want text messages to be sent
 currency = 'currency_example' # str | Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD (optional)
 invoice_limit = 56 # int | Number of invoices to raise during subscription to this plan.  Can be overridden by specifying an invoice_limit while subscribing. (optional)
 
-    try:
-        # Create Plan
-        api_response = api_instance.create(name, amount, interval, description=description, send_invoices=send_invoices, send_sms=send_sms, currency=currency, invoice_limit=invoice_limit)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Plan->create: %s\n" % e)
-```
+# Create Plan
 
+response = paystack.Plan.create(name, amount, interval, description=description, send_invoices=send_invoices, send_sms=send_sms, currency=currency, invoice_limit=invoice_limit)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -105,41 +82,18 @@ Fetch Plan
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+code = 'code_example' # str | 
 
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Plan(api_client)
-    code = 'code_example' # str | 
+# Fetch Plan
 
-    try:
-        # Fetch Plan
-        api_response = api_instance.fetch(code)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Plan->fetch: %s\n" % e)
+response = paystack.Plan.fetch(code)
+pprint(response)
 ```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -178,46 +132,23 @@ List Plans
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Plan(api_client)
-    per_page = 56 # int | Number of records to fetch per page (optional)
+per_page = 56 # int | Number of records to fetch per page (optional)
 page = 56 # int | The section to retrieve (optional)
 interval = 'interval_example' # str | Specify interval of the plan (optional)
 amount = 56 # int | The amount on the plans to retrieve (optional)
 _from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
 to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
-    try:
-        # List Plans
-        api_response = api_instance.list(per_page=per_page, page=page, interval=interval, amount=amount, _from=_from, to=to)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Plan->list: %s\n" % e)
-```
+# List Plans
 
+response = paystack.Plan.list(per_page=per_page, page=page, interval=interval, amount=amount, _from=_from, to=to)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -261,32 +192,12 @@ Update Plan
 
 * Bearer Authentication (bearerAuth):
 ```python
-from __future__ import print_function
-import time
 import paystack
 from paystack.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.paystack.co
-# See configuration.py for a list of all supported configuration parameters.
-configuration = paystack.Configuration(
-    host = "https://api.paystack.co"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
-# Configure Bearer authorization: bearerAuth
-configuration = paystack.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with paystack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = paystack.Plan(api_client)
-    code = 'code_example' # str | 
+code = 'code_example' # str | 
 name = 'name_example' # str | Name of plan (optional)
 amount = 56 # int | Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR (optional)
 interval = 'interval_example' # str | Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually (optional)
@@ -296,14 +207,11 @@ send_sms = True # bool | Set to false if you don't want text messages to be sent
 currency = 'currency_example' # str | Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD (optional)
 invoice_limit = 56 # int | Number of invoices to raise during subscription to this plan.  Can be overridden by specifying an invoice_limit while subscribing. (optional)
 
-    try:
-        # Update Plan
-        api_response = api_instance.update(code, name=name, amount=amount, interval=interval, description=description, send_invoices=send_invoices, send_sms=send_sms, currency=currency, invoice_limit=invoice_limit)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling Plan->update: %s\n" % e)
-```
+# Update Plan
 
+response = paystack.Plan.update(code, name=name, amount=amount, interval=interval, description=description, send_invoices=send_invoices, send_sms=send_sms, currency=currency, invoice_limit=invoice_limit)
+pprint(response)
+```
 ### Parameters
 
 Name | Type | Description  | Notes
