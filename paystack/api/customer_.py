@@ -156,7 +156,7 @@ class Customer(object):
         
         
         response_types_map = {
-            201: "Response",
+            200: "Response",
             401: "Error",
         }
 
@@ -365,7 +365,7 @@ class Customer(object):
         
         
         response_types_map = {
-            201: "Response",
+            200: "Response",
             401: "Error",
         }
 
@@ -484,7 +484,7 @@ class Customer(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: Response
+        :rtype: Accepted
         """
         local_var_params = locals()
 
@@ -571,7 +571,7 @@ class Customer(object):
         
         
         response_types_map = {
-            201: "Response",
+            202: "Accepted",
             401: "Error",
         }
 

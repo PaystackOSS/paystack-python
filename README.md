@@ -149,16 +149,15 @@ Class | Method | HTTP request | Description
 *TransferRecipient* | [**transferrecipient_code_delete**](docs/TransferRecipient.md#transferrecipient_code_delete) | **DELETE** /transferrecipient/{code} | Delete Transfer Recipient
 *TransferRecipient* | [**transferrecipient_code_put**](docs/TransferRecipient.md#transferrecipient_code_put) | **PUT** /transferrecipient/{code} | Update Transfer recipient
 *Verification* | [**avs**](docs/Verification.md#avs) | **GET** /address_verification/states | List States (AVS)
-*Verification* | [**bvn_match**](docs/Verification.md#bvn_match) | **POST** /bvn/match | Match Service
 *Verification* | [**fetch_banks**](docs/Verification.md#fetch_banks) | **GET** /bank | Fetch Banks
 *Verification* | [**list_countries**](docs/Verification.md#list_countries) | **GET** /country | List Countries
 *Verification* | [**resolve_account_number**](docs/Verification.md#resolve_account_number) | **GET** /bank/resolve | Resolve Account Number
-*Verification* | [**resolve_bvn**](docs/Verification.md#resolve_bvn) | **GET** /bank/resolve_bvn/{bvn} | Resolve BVN
 *Verification* | [**resolve_card_bin**](docs/Verification.md#resolve_card_bin) | **GET** /decision/bin/{bin} | Resolve Card BIN
 
 
 ## Documentation For Models
 
+ - [Accepted](docs/Accepted.md)
  - [Bank](docs/Bank.md)
  - [BulkChargeInitiate](docs/BulkChargeInitiate.md)
  - [ChargeCreate](docs/ChargeCreate.md)

@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Resource created |  -  |
+**200** | Request successful |  -  |
 **401** | Unauthorized operation |  -  |
 **0** | Server error |  -  |
 
@@ -107,7 +107,7 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Resource created |  -  |
+**200** | Request successful |  -  |
 **401** | Unauthorized operation |  -  |
 **0** | Server error |  -  |
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Resource created |  -  |
+**200** | Request successful |  -  |
 **401** | Unauthorized operation |  -  |
 **0** | Server error |  -  |
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
+**200** | Request successful |  -  |
 **401** | Unauthorized operation |  -  |
 **404** | Entity not found |  -  |
 **0** | Server error |  -  |
@@ -259,7 +259,7 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Resource created |  -  |
+**200** | Request successful |  -  |
 **401** | Unauthorized operation |  -  |
 **0** | Server error |  -  |
 
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
+**200** | Request successful |  -  |
 **401** | Unauthorized operation |  -  |
 **404** | Entity not found |  -  |
 **0** | Server error |  -  |
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Resource created |  -  |
+**200** | Request successful |  -  |
 **401** | Unauthorized operation |  -  |
 **0** | Server error |  -  |
 
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Resource created |  -  |
+**200** | Request successful |  -  |
 **401** | Unauthorized operation |  -  |
 **0** | Server error |  -  |
 
@@ -476,7 +476,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
+**200** | Request successful |  -  |
 **401** | Unauthorized operation |  -  |
 **404** | Entity not found |  -  |
 **0** | Server error |  -  |
@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Resource created |  -  |
+**200** | Request successful |  -  |
 **401** | Unauthorized operation |  -  |
 **0** | Server error |  -  |
 
@@ -577,7 +577,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
+**200** | Request successful |  -  |
 **401** | Unauthorized operation |  -  |
 **404** | Entity not found |  -  |
 **0** | Server error |  -  |

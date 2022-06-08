@@ -12,8 +12,8 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "paystacksdk"
-VERSION = "0.3.0"
+NAME = "paystack-sdk"
+VERSION = "1.0.0-beta.1"
 # To install the library, run the following
 #
 # python setup.py install
@@ -29,7 +29,7 @@ setup(
     description="Paystack",
     author="Paystack Integration",
     author_email="techsupport@paystack.com",
-    url="",
+    url="https://github.com/PaystackOSS/paystack-python",
     keywords=["Paystack", "Transaction", "Split Payment", "Customer", "Dedicated Virtual Account", "Subaccount",
     "Plan", "Subscription", "Product", "Page", "Payment Request", "Settlement", "Transfer Recipient", "Transfer",
     "Balance", "Charge", "Bulk Charge", "Integration", "Refund", "Dispute", "Verification"],

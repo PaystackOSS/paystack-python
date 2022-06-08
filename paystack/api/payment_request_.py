@@ -77,7 +77,7 @@ class PaymentRequest(object):
         
         
         response_types_map = {
-            201: "Response",
+            200: "Response",
             401: "Error",
         }
 
@@ -190,7 +190,7 @@ class PaymentRequest(object):
         
         
         response_types_map = {
-            201: "Response",
+            200: "Response",
             401: "Error",
         }
 
@@ -307,7 +307,7 @@ class PaymentRequest(object):
         
         
         response_types_map = {
-            201: "Response",
+            200: "Response",
             401: "Error",
         }
 
@@ -450,7 +450,7 @@ class PaymentRequest(object):
         
         
         response_types_map = {
-            201: "Response",
+            200: "Response",
             401: "Error",
         }
 

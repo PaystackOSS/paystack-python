@@ -14,6 +14,7 @@
 from __future__ import absolute_import
 
 # import models into model package
+from paystack.models.accepted import Accepted
 from paystack.models.bank import Bank
 from paystack.models.bulk_charge_initiate import BulkChargeInitiate
 from paystack.models.charge_create import ChargeCreate

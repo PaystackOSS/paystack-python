@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Resource created |  -  |
+**200** | Request successful |  -  |
 **401** | Unauthorized operation |  -  |
 **0** | Server error |  -  |
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Resource created |  -  |
+**200** | Request successful |  -  |
 **401** | Unauthorized operation |  -  |
 **0** | Server error |  -  |
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
+**200** | Request successful |  -  |
 **401** | Unauthorized operation |  -  |
 **404** | Entity not found |  -  |
 **0** | Server error |  -  |
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
+**200** | Request successful |  -  |
 **401** | Unauthorized operation |  -  |
 **404** | Entity not found |  -  |
 **0** | Server error |  -  |
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Resource created |  -  |
+**200** | Request successful |  -  |
 **401** | Unauthorized operation |  -  |
 **0** | Server error |  -  |
 
@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
+**200** | Request successful |  -  |
 **401** | Unauthorized operation |  -  |
 **404** | Entity not found |  -  |
 **0** | Server error |  -  |
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **validatte**
-> Response validatte(code, first_name, last_name, type, country, bvn, bank_code, account_number, value=value)
+> Accepted validatte(code, first_name, last_name, type, country, bvn, bank_code, account_number, value=value)
 
 Validate Customer
 
@@ -393,7 +393,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Response**](Response.md)
+[**Accepted**](Accepted.md)
 
 ### Authorization
 
@@ -407,7 +407,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Resource created |  -  |
+**202** | Request accepted for processing |  -  |
 **401** | Unauthorized operation |  -  |
 **0** | Server error |  -  |
 

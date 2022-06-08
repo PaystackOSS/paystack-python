@@ -87,7 +87,7 @@ class DedicatedVirtualAccount(object):
         
         
         response_types_map = {
-            201: "Response",
+            200: "Response",
             401: "Error",
         }
 
@@ -210,7 +210,7 @@ class DedicatedVirtualAccount(object):
         
         
         response_types_map = {
-            201: "Response",
+            200: "Response",
             401: "Error",
         }
 
