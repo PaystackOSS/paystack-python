@@ -20,22 +20,23 @@ Create Plan
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 name = 'name_example' # str | Name of plan
 amount = 56 # int | Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR
 interval = 'interval_example' # str | Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually
-description = True # bool | A description for this plan (optional)
-send_invoices = True # bool | Set to false if you don't want invoices to be sent to your customers (optional)
-send_sms = True # bool | Set to false if you don't want text messages to be sent to your customers (optional)
-currency = 'currency_example' # str | Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD (optional)
-invoice_limit = 56 # int | Number of invoices to raise during subscription to this plan.  Can be overridden by specifying an invoice_limit while subscribing. (optional)
 
 # Create Plan
 
-response = paystack.Plan.create(name, amount, interval, description=description, send_invoices=send_invoices, send_sms=send_sms, currency=currency, invoice_limit=invoice_limit)
+response = paystack.Plan.create(
+    name,
+    amount,
+    interval,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -83,15 +84,19 @@ Fetch Plan
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | 
 
 # Fetch Plan
 
-response = paystack.Plan.fetch(code)
+response = paystack.Plan.fetch(
+    code,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -133,20 +138,17 @@ List Plans
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 56 # int | Number of records to fetch per page (optional)
-page = 56 # int | The section to retrieve (optional)
-interval = 'interval_example' # str | Specify interval of the plan (optional)
-amount = 56 # int | The amount on the plans to retrieve (optional)
-_from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
-to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
 # List Plans
 
-response = paystack.Plan.list(per_page=per_page, page=page, interval=interval, amount=amount, _from=_from, to=to)
+response = paystack.Plan.list(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -193,23 +195,19 @@ Update Plan
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | 
-name = 'name_example' # str | Name of plan (optional)
-amount = 56 # int | Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR (optional)
-interval = 'interval_example' # str | Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually (optional)
-description = True # bool | A description for this plan (optional)
-send_invoices = True # bool | Set to false if you don't want invoices to be sent to your customers (optional)
-send_sms = True # bool | Set to false if you don't want text messages to be sent to your customers (optional)
-currency = 'currency_example' # str | Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD (optional)
-invoice_limit = 56 # int | Number of invoices to raise during subscription to this plan.  Can be overridden by specifying an invoice_limit while subscribing. (optional)
 
 # Update Plan
 
-response = paystack.Plan.update(code, name=name, amount=amount, interval=interval, description=description, send_invoices=send_invoices, send_sms=send_sms, currency=currency, invoice_limit=invoice_limit)
+response = paystack.Plan.update(
+    code,
+)
+
 pprint(response)
 ```
 ### Parameters

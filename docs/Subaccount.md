@@ -20,23 +20,25 @@ Create Subaccount
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 business_name = 'business_name_example' # str | Name of business for subaccount
 settlement_bank = 'settlement_bank_example' # str | Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.
 account_number = 'account_number_example' # str | Bank account number
 percentage_charge = 3.4 # float | Customer's phone number
-description = 'description_example' # str | A description for this subaccount (optional)
-primary_contact_email = 'primary_contact_email_example' # str | A contact email for the subaccount (optional)
-primary_contact_name = 'primary_contact_name_example' # str | The name of the contact person for this subaccount (optional)
-primary_contact_phone = 'primary_contact_phone_example' # str | A phone number to call for this subaccount (optional)
-metadata = 'metadata_example' # str | Stringified JSON object of custom data (optional)
 
 # Create Subaccount
 
-response = paystack.Subaccount.create(business_name, settlement_bank, account_number, percentage_charge, description=description, primary_contact_email=primary_contact_email, primary_contact_name=primary_contact_name, primary_contact_phone=primary_contact_phone, metadata=metadata)
+response = paystack.Subaccount.create(
+    business_name,
+    settlement_bank,
+    account_number,
+    percentage_charge,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -85,15 +87,19 @@ Fetch Subaccount
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | 
 
 # Fetch Subaccount
 
-response = paystack.Subaccount.fetch(code)
+response = paystack.Subaccount.fetch(
+    code,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -135,18 +141,17 @@ List Subaccounts
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 56 # int | Number of records to fetch per page (optional)
-page = 56 # int | The section to retrieve (optional)
-_from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
-to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
 # List Subaccounts
 
-response = paystack.Subaccount.list(per_page=per_page, page=page, _from=_from, to=to)
+response = paystack.Subaccount.list(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -191,25 +196,19 @@ Update Subaccount
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | 
-business_name = 'business_name_example' # str | Name of business for subaccount (optional)
-settlement_bank = 'settlement_bank_example' # str | Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint. (optional)
-account_number = 'account_number_example' # str | Bank account number (optional)
-active = True # bool | Activate or deactivate a subaccount (optional)
-percentage_charge = 3.4 # float | Customer's phone number (optional)
-description = 'description_example' # str | A description for this subaccount (optional)
-primary_contact_email = 'primary_contact_email_example' # str | A contact email for the subaccount (optional)
-primary_contact_name = 'primary_contact_name_example' # str | The name of the contact person for this subaccount (optional)
-primary_contact_phone = 'primary_contact_phone_example' # str | A phone number to call for this subaccount (optional)
-metadata = 'metadata_example' # str | Stringified JSON object of custom data (optional)
 
 # Update Subaccount
 
-response = paystack.Subaccount.update(code, business_name=business_name, settlement_bank=settlement_bank, account_number=account_number, active=active, percentage_charge=percentage_charge, description=description, primary_contact_email=primary_contact_email, primary_contact_name=primary_contact_name, primary_contact_phone=primary_contact_phone, metadata=metadata)
+response = paystack.Subaccount.update(
+    code,
+)
+
 pprint(response)
 ```
 ### Parameters

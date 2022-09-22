@@ -24,19 +24,17 @@ Export Disputes
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 56 # int | Number of records to fetch per page (optional)
-page = 56 # int | The section to retrieve (optional)
-status = 'status_example' # str |  (optional)
-_from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
-to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
 # Export Disputes
 
-response = paystack.Dispute.download(per_page=per_page, page=page, status=status, _from=_from, to=to)
+response = paystack.Dispute.download(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -82,21 +80,27 @@ Add Evidence
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | Dispute ID
 customer_email = 'customer_email_example' # str | Customer email
 customer_name = 'customer_name_example' # str | Customer name
 customer_phone = 'customer_phone_example' # str | Customer mobile number
 service_details = 'service_details_example' # str | Details of service offered
-delivery_address = 'delivery_address_example' # str | Delivery address (optional)
-delivery_date = '2013-10-20T19:20:30+01:00' # datetime | ISO 8601 representation of delivery date (YYYY-MM-DD) (optional)
 
 # Add Evidence
 
-response = paystack.Dispute.evidence(id, customer_email, customer_name, customer_phone, service_details, delivery_address=delivery_address, delivery_date=delivery_date)
+response = paystack.Dispute.evidence(
+    id,
+    customer_email,
+    customer_name,
+    customer_phone,
+    service_details,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -143,15 +147,19 @@ Fetch Dispute
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | Dispute ID
 
 # Fetch Dispute
 
-response = paystack.Dispute.fetch(id)
+response = paystack.Dispute.fetch(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -193,20 +201,17 @@ List Disputes
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 56 # int | Number of records to fetch per page (optional)
-page = 56 # int | The section to retrieve (optional)
-status = 'status_example' # str | Dispute Status. Acceptable values are awaiting-merchant-feedback, awaiting-bank-feedback, pending, resolved (optional)
-transaction = 'transaction_example' # str | Transaction ID (optional)
-_from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
-to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
 # List Disputes
 
-response = paystack.Dispute.list(per_page=per_page, page=page, status=status, transaction=transaction, _from=_from, to=to)
+response = paystack.Dispute.list(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -253,20 +258,27 @@ Resolve a Dispute
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | Dispute ID
 resolution = 'resolution_example' # str | Dispute resolution. Accepted values, merchant-accepted, declined
 message = 'message_example' # str | Reason for resolving
 refund_amount = 'refund_amount_example' # str | The amount to refund, in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR
 uploaded_filename = 'uploaded_filename_example' # str | Filename of attachment returned via response from the Dispute upload URL
-evidence = 56 # int | Evidence Id for fraud claims (optional)
 
 # Resolve a Dispute
 
-response = paystack.Dispute.resolve(id, resolution, message, refund_amount, uploaded_filename, evidence=evidence)
+response = paystack.Dispute.resolve(
+    id,
+    resolution,
+    message,
+    refund_amount,
+    uploaded_filename,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -313,15 +325,19 @@ List Transaction Disputes
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | Transaction ID
 
 # List Transaction Disputes
 
-response = paystack.Dispute.transaction(id)
+response = paystack.Dispute.transaction(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -363,17 +379,21 @@ Update Dispute
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | Dispute ID
 refund_amount = 'refund_amount_example' # str | The amount to refund, in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR
-uploaded_filename = 'uploaded_filename_example' # str | Filename of attachment returned via response from the Dispute upload URL (optional)
 
 # Update Dispute
 
-response = paystack.Dispute.update(id, refund_amount, uploaded_filename=uploaded_filename)
+response = paystack.Dispute.update(
+    id,
+    refund_amount,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -417,15 +437,19 @@ Get Upload URL
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | Dispute ID
 
 # Get Upload URL
 
-response = paystack.Dispute.upload_url(id)
+response = paystack.Dispute.upload_url(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters

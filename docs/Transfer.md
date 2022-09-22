@@ -27,16 +27,17 @@ Initiate Bulk Transfer
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-source = 'source_example' # str | Where should we transfer from? Only balance is allowed for now (optional)
-transfers = paystack.TransferInitiate() # list[TransferInitiate] | A list of transfer object. Each object should contain amount, recipient, and reference (optional)
 
 # Initiate Bulk Transfer
 
-response = paystack.Transfer.bulk(source=source, transfers=transfers)
+response = paystack.Transfer.bulk(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -78,14 +79,17 @@ Disable OTP requirement for Transfers
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 
 # Disable OTP requirement for Transfers
 
 response = paystack.Transfer.disable_otp()
+
+
 pprint(response)
 ```
 ### Parameters
@@ -123,15 +127,19 @@ Finalize Disabling of OTP requirement for Transfers
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 otp = 'otp_example' # str | OTP sent to business phone to verify disabling OTP requirement
 
 # Finalize Disabling of OTP requirement for Transfers
 
-response = paystack.Transfer.disable_otp_finalize(otp)
+response = paystack.Transfer.disable_otp_finalize(
+    otp,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -172,19 +180,17 @@ Export Transfers
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 56 # int | Number of records to fetch per page (optional)
-page = 56 # int | The section to retrieve (optional)
-status = 'status_example' # str |  (optional)
-_from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
-to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
 # Export Transfers
 
-response = paystack.Transfer.download(per_page=per_page, page=page, status=status, _from=_from, to=to)
+response = paystack.Transfer.download(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -230,14 +236,17 @@ Enable OTP requirement for Transfers
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 
 # Enable OTP requirement for Transfers
 
 response = paystack.Transfer.enable_otp()
+
+
 pprint(response)
 ```
 ### Parameters
@@ -275,15 +284,19 @@ Fetch Transfer
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | Transfer code
 
 # Fetch Transfer
 
-response = paystack.Transfer.fetch(code)
+response = paystack.Transfer.fetch(
+    code,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -325,16 +338,21 @@ Finalize Transfer
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 transfer_code = 'transfer_code_example' # str | The transfer code you want to finalize
 otp = 'otp_example' # str | OTP sent to business phone to verify transfer
 
 # Finalize Transfer
 
-response = paystack.Transfer.finalize(transfer_code, otp)
+response = paystack.Transfer.finalize(
+    transfer_code,
+    otp,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -376,20 +394,23 @@ Initiate Transfer
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 source = 'source_example' # str | Where should we transfer from? Only balance is allowed for now
 amount = 'amount_example' # str | Amount to transfer in kobo if currency is NGN and pesewas if currency is GHS.
 recipient = 'recipient_example' # str | The transfer recipient's code
-reason = 'reason_example' # str | The reason or narration for the transfer. (optional)
-currency = 'currency_example' # str | Specify the currency of the transfer. Defaults to NGN. (optional)
-reference = 'reference_example' # str | If specified, the field should be a unique identifier (in lowercase) for the object.  Only -,_ and alphanumeric characters are allowed. (optional)
 
 # Initiate Transfer
 
-response = paystack.Transfer.initiate(source, amount, recipient, reason=reason, currency=currency, reference=reference)
+response = paystack.Transfer.initiate(
+    source,
+    amount,
+    recipient,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -435,19 +456,17 @@ List Transfers
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 56 # int | Number of records to fetch per page (optional)
-page = 56 # int | The section to retrieve (optional)
-status = 'status_example' # str |  (optional)
-_from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
-to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
 # List Transfers
 
-response = paystack.Transfer.list(per_page=per_page, page=page, status=status, _from=_from, to=to)
+response = paystack.Transfer.list(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -493,16 +512,21 @@ Resend OTP for Transfer
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 transfer_code = 'transfer_code_example' # str | The transfer code that requires an OTP validation
 reason = 'reason_example' # str | Either resend_otp or transfer
 
 # Resend OTP for Transfer
 
-response = paystack.Transfer.resend_otp(transfer_code, reason)
+response = paystack.Transfer.resend_otp(
+    transfer_code,
+    reason,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -544,15 +568,19 @@ Verify Transfer
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 reference = 'reference_example' # str | 
 
 # Verify Transfer
 
-response = paystack.Transfer.verify(reference)
+response = paystack.Transfer.verify(
+    reference,
+)
+
 pprint(response)
 ```
 ### Parameters

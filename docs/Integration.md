@@ -18,14 +18,17 @@ Fetch Payment Session Timeout
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 
 # Fetch Payment Session Timeout
 
 response = paystack.Integration.fetch_payment_session_timeout()
+
+
 pprint(response)
 ```
 ### Parameters
@@ -64,15 +67,17 @@ Update Payment Session Timeout
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-body = None # object |  (optional)
 
 # Update Payment Session Timeout
 
-response = paystack.Integration.update_payment_session_timeout(body=body)
+response = paystack.Integration.update_payment_session_timeout(
+)
+
 pprint(response)
 ```
 ### Parameters

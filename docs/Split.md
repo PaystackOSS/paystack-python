@@ -22,17 +22,19 @@ Add Subaccount to Split
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'application/json' # str | 
-subaccount = 'subaccount_example' # str | Subaccount code of the customer or partner (optional)
-share = 'share_example' # str | The percentage or flat quota of the customer or partner (optional)
 
 # Add Subaccount to Split
 
-response = paystack.Split.add_subaccount(id, subaccount=subaccount, share=share)
+response = paystack.Split.add_subaccount(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -75,20 +77,25 @@ Create Split
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 name = 'name_example' # str | Name of the transaction split
 type = 'type_example' # str | The type of transaction split you want to create.
 subaccounts = paystack.SplitSubaccounts() # list[SplitSubaccounts] | A list of object containing subaccount code and number of shares
 currency = 'currency_example' # str | The transaction currency
-bearer_type = 'bearer_type_example' # str | This allows you specify how the transaction charge should be processed (optional)
-bearer_subaccount = 'bearer_subaccount_example' # str | This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type (optional)
 
 # Create Split
 
-response = paystack.Split.create(name, type, subaccounts, currency, bearer_type=bearer_type, bearer_subaccount=bearer_subaccount)
+response = paystack.Split.create(
+    name,
+    type,
+    subaccounts,
+    currency,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -134,15 +141,19 @@ Fetch Split
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
 
 # Fetch Split
 
-response = paystack.Split.fetch(id)
+response = paystack.Split.fetch(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -184,21 +195,17 @@ List/Search Splits
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-name = 'name_example' # str |  (optional)
-active = 'active_example' # str |  (optional)
-sort_by = 'sort_by_example' # str |  (optional)
-_from = '_from_example' # str |  (optional)
-to = 'to_example' # str |  (optional)
-per_page = 'per_page_example' # str |  (optional)
-page = 'page_example' # str |  (optional)
 
 # List/Search Splits
 
-response = paystack.Split.list(name=name, active=active, sort_by=sort_by, _from=_from, to=to, per_page=per_page, page=page)
+response = paystack.Split.list(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -246,17 +253,19 @@ Remove Subaccount from split
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
-subaccount = 'subaccount_example' # str | Subaccount code of the customer or partner (optional)
-share = 'share_example' # str | The percentage or flat quota of the customer or partner (optional)
 
 # Remove Subaccount from split
 
-response = paystack.Split.remove_subaccount(id, subaccount=subaccount, share=share)
+response = paystack.Split.remove_subaccount(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -299,19 +308,19 @@ Update Split
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
-name = 'name_example' # str | Name of the transaction split (optional)
-active = True # bool | Toggle status of split. When true, the split is active, else it's inactive (optional)
-bearer_type = 'bearer_type_example' # str | This allows you specify how the transaction charge should be processed (optional)
-bearer_subaccount = 'bearer_subaccount_example' # str | This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type (optional)
 
 # Update Split
 
-response = paystack.Split.update(id, name=name, active=active, bearer_type=bearer_type, bearer_subaccount=bearer_subaccount)
+response = paystack.Split.update(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters

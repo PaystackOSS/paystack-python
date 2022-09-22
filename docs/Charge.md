@@ -23,15 +23,19 @@ Check pending charge
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 reference = 'reference_example' # str | 
 
 # Check pending charge
 
-response = paystack.Charge.check(reference)
+response = paystack.Charge.check(
+    reference,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -73,26 +77,17 @@ Create Charge
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-email = 'email_example' # str | Customer's email address (optional)
-amount = 'amount_example' # str | Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR (optional)
-authorization_code = 'authorization_code_example' # str | An authorization code to charge. (optional)
-pin = 'pin_example' # str | 4-digit PIN (send with a non-reusable authorization code) (optional)
-reference = 'reference_example' # str | Unique transaction reference. Only -, .`, = and alphanumeric characters allowed. (optional)
-birthday = '2013-10-20T19:20:30+01:00' # datetime | The customer's birthday in the format YYYY-MM-DD e.g 2017-05-16 (optional)
-device_id = 'device_id_example' # str | This is the unique identifier of the device a user uses in making payment.  Only -, .`, = and alphanumeric characters are allowed. (optional)
-metadata = 'metadata_example' # str | Stringified JSON object of custom data (optional)
-bank = paystack.Bank() # Bank |  (optional)
-mobile_money = paystack.MobileMoney() # MobileMoney |  (optional)
-ussd = paystack.USSD() # USSD |  (optional)
-eft = paystack.EFT() # EFT |  (optional)
 
 # Create Charge
 
-response = paystack.Charge.create(email=email, amount=amount, authorization_code=authorization_code, pin=pin, reference=reference, birthday=birthday, device_id=device_id, metadata=metadata, bank=bank, mobile_money=mobile_money, ussd=ussd, eft=eft)
+response = paystack.Charge.create(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -144,9 +139,10 @@ Submit Address
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 address = 'address_example' # str | Customer's address
 city = 'city_example' # str | Customer's city
@@ -156,7 +152,14 @@ reference = 'reference_example' # str | The reference of the ongoing transaction
 
 # Submit Address
 
-response = paystack.Charge.submit_address(address, city, state, zipcode, reference)
+response = paystack.Charge.submit_address(
+    address,
+    city,
+    state,
+    zipcode,
+    reference,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -201,16 +204,21 @@ Submit Birthday
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 birthday = 'birthday_example' # str | Customer's birthday in the format YYYY-MM-DD e.g 2016-09-21
 reference = 'reference_example' # str | The reference of the ongoing transaction
 
 # Submit Birthday
 
-response = paystack.Charge.submit_birthday(birthday, reference)
+response = paystack.Charge.submit_birthday(
+    birthday,
+    reference,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -252,16 +260,21 @@ Submit OTP
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 otp = 'otp_example' # str | Customer's OTP
 reference = 'reference_example' # str | The reference of the ongoing transaction
 
 # Submit OTP
 
-response = paystack.Charge.submit_otp(otp, reference)
+response = paystack.Charge.submit_otp(
+    otp,
+    reference,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -303,16 +316,21 @@ Submit Phone
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 phone = 'phone_example' # str | Customer's mobile number
 reference = 'reference_example' # str | The reference of the ongoing transaction
 
 # Submit Phone
 
-response = paystack.Charge.submit_phone(phone, reference)
+response = paystack.Charge.submit_phone(
+    phone,
+    reference,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -354,16 +372,21 @@ Submit PIN
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 pin = 'pin_example' # str | Customer's PIN
 reference = 'reference_example' # str | Transaction reference that requires the PIN
 
 # Submit PIN
 
-response = paystack.Charge.submit_pin(pin, reference)
+response = paystack.Charge.submit_pin(
+    pin,
+    reference,
+)
+
 pprint(response)
 ```
 ### Parameters

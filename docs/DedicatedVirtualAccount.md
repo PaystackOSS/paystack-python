@@ -23,17 +23,19 @@ Split Dedicated Account Transaction
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 account_number = 'account_number_example' # str | Valid Dedicated virtual account
-subaccount = 'subaccount_example' # str | Subaccount code of the account you want to split the transaction with (optional)
-split_code = 'split_code_example' # str | Split code consisting of the lists of accounts you want to split the transaction with (optional)
 
 # Split Dedicated Account Transaction
 
-response = paystack.DedicatedVirtualAccount.add_split(account_number, subaccount=subaccount, split_code=split_code)
+response = paystack.DedicatedVirtualAccount.add_split(
+    account_number,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -76,14 +78,17 @@ Fetch Bank Providers
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 
 # Fetch Bank Providers
 
 response = paystack.DedicatedVirtualAccount.available_providers()
+
+
 pprint(response)
 ```
 ### Parameters
@@ -122,18 +127,19 @@ Create Dedicated Account
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 customer = 'customer_example' # str | Customer ID or code
-preferred_bank = 'preferred_bank_example' # str | The bank slug for preferred bank. To get a list of available banks, use the List Providers endpoint (optional)
-subaccount = 'subaccount_example' # str | Subaccount code of the account you want to split the transaction with (optional)
-split_code = 'split_code_example' # str | Split code consisting of the lists of accounts you want to split the transaction with (optional)
 
 # Create Dedicated Account
 
-response = paystack.DedicatedVirtualAccount.create(customer, preferred_bank=preferred_bank, subaccount=subaccount, split_code=split_code)
+response = paystack.DedicatedVirtualAccount.create(
+    customer,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -177,15 +183,19 @@ Deactivate Dedicated Account
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 account_id = 'account_id_example' # str | 
 
 # Deactivate Dedicated Account
 
-response = paystack.DedicatedVirtualAccount.deactivate(account_id)
+response = paystack.DedicatedVirtualAccount.deactivate(
+    account_id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -227,15 +237,19 @@ Fetch Dedicated Account
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 account_id = 'account_id_example' # str | 
 
 # Fetch Dedicated Account
 
-response = paystack.DedicatedVirtualAccount.fetch(account_id)
+response = paystack.DedicatedVirtualAccount.fetch(
+    account_id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -277,22 +291,17 @@ List Dedicated Accounts
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-account_number = 'account_number_example' # str |  (optional)
-customer = 'customer_example' # str |  (optional)
-active = True # bool |  (optional)
-currency = 'currency_example' # str |  (optional)
-provider_slug = 'provider_slug_example' # str |  (optional)
-bank_id = 'bank_id_example' # str |  (optional)
-per_page = 'per_page_example' # str |  (optional)
-page = 'page_example' # str |  (optional)
 
 # List Dedicated Accounts
 
-response = paystack.DedicatedVirtualAccount.list(account_number=account_number, customer=customer, active=active, currency=currency, provider_slug=provider_slug, bank_id=bank_id, per_page=per_page, page=page)
+response = paystack.DedicatedVirtualAccount.list(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -341,17 +350,19 @@ Remove Split from Dedicated Account
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 account_number = 'account_number_example' # str | Valid Dedicated virtual account
-subaccount = 'subaccount_example' # str | Subaccount code of the account you want to split the transaction with (optional)
-split_code = 'split_code_example' # str | Split code consisting of the lists of accounts you want to split the transaction with (optional)
 
 # Remove Split from Dedicated Account
 
-response = paystack.DedicatedVirtualAccount.remove_split(account_number, subaccount=subaccount, split_code=split_code)
+response = paystack.DedicatedVirtualAccount.remove_split(
+    account_number,
+)
+
 pprint(response)
 ```
 ### Parameters

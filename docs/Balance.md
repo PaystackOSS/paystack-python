@@ -20,14 +20,17 @@ You can only transfer from what you have
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 
 # Fetch Balance
 
 response = paystack.Balance.fetch()
+
+
 pprint(response)
 ```
 ### Parameters
@@ -66,18 +69,17 @@ Balance Ledger
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 56 # int | Number of records to fetch per page (optional)
-page = 56 # int | The section to retrieve (optional)
-_from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
-to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
 # Balance Ledger
 
-response = paystack.Balance.ledger(per_page=per_page, page=page, _from=_from, to=to)
+response = paystack.Balance.ledger(
+)
+
 pprint(response)
 ```
 ### Parameters

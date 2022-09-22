@@ -25,15 +25,19 @@ Archive Payment Request
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
 
 # Archive Payment Request
 
-response = paystack.PaymentRequest.archive(id)
+response = paystack.PaymentRequest.archive(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -74,26 +78,19 @@ Create Payment Request
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 customer = 'customer_example' # str | Customer id or code
-amount = 56 # int | Payment request amount. Only useful if line items and tax values are ignored.  The endpoint will throw a friendly warning if neither is available. (optional)
-currency = 'currency_example' # str | Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN (optional)
-due_date = '2013-10-20T19:20:30+01:00' # datetime | ISO 8601 representation of request due date (optional)
-description = 'description_example' # str | A short description of the payment request (optional)
-line_items = None # list[object] | Array of line items (optional)
-tax = None # list[object] | Array of taxes (optional)
-send_notification = None # list[object] | Indicates whether Paystack sends an email notification to customer. Defaults to true (optional)
-draft = None # list[object] | Indicate if request should be saved as draft. Defaults to false and overrides send_notification (optional)
-has_invoice = None # list[object] | Set to true to create a draft invoice (adds an auto incrementing invoice number if none is provided)  even if there are no line_items or tax passed (optional)
-invoice_number = 56 # int | Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field is to help  override whatever value Paystack decides. Auto increment for subsequent invoices continue from this point. (optional)
-split_code = 'split_code_example' # str | The split code of the transaction split. (optional)
 
 # Create Payment Request
 
-response = paystack.PaymentRequest.create(customer, amount=amount, currency=currency, due_date=due_date, description=description, line_items=line_items, tax=tax, send_notification=send_notification, draft=draft, has_invoice=has_invoice, invoice_number=invoice_number, split_code=split_code)
+response = paystack.PaymentRequest.create(
+    customer,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -145,15 +142,19 @@ Fetch Payment Request
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
 
 # Fetch Payment Request
 
-response = paystack.PaymentRequest.fetch(id)
+response = paystack.PaymentRequest.fetch(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -195,15 +196,19 @@ Finalize Payment Request
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
 
 # Finalize Payment Request
 
-response = paystack.PaymentRequest.finalize(id)
+response = paystack.PaymentRequest.finalize(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -244,21 +249,17 @@ List Payment Request
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 56 # int | Number of records to fetch per page (optional)
-page = 56 # int | The section to retrieve (optional)
-customer = 'customer_example' # str | Customer ID (optional)
-status = 'status_example' # str | Invoice status to filter (optional)
-currency = 'currency_example' # str | If your integration supports more than one currency, choose the one to filter (optional)
-_from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
-to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
 # List Payment Request
 
-response = paystack.PaymentRequest.list(per_page=per_page, page=page, customer=customer, status=status, currency=currency, _from=_from, to=to)
+response = paystack.PaymentRequest.list(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -306,15 +307,19 @@ Send Notification
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
 
 # Send Notification
 
-response = paystack.PaymentRequest.notify(id)
+response = paystack.PaymentRequest.notify(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -355,14 +360,17 @@ Payment Request Total
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 
 # Payment Request Total
 
 response = paystack.PaymentRequest.totals()
+
+
 pprint(response)
 ```
 ### Parameters
@@ -401,27 +409,19 @@ Update Payment Request
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
-customer = 'customer_example' # str | Customer id or code (optional)
-amount = 56 # int | Payment request amount. Only useful if line items and tax values are ignored.  The endpoint will throw a friendly warning if neither is available. (optional)
-currency = 'currency_example' # str | Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN (optional)
-due_date = '2013-10-20T19:20:30+01:00' # datetime | ISO 8601 representation of request due date (optional)
-description = 'description_example' # str | A short description of the payment request (optional)
-line_items = None # list[object] | Array of line items (optional)
-tax = None # list[object] | Array of taxes (optional)
-send_notification = None # list[object] | Indicates whether Paystack sends an email notification to customer. Defaults to true (optional)
-draft = None # list[object] | Indicate if request should be saved as draft. Defaults to false and overrides send_notification (optional)
-has_invoice = None # list[object] | Set to true to create a draft invoice (adds an auto incrementing invoice number if none is provided)  even if there are no line_items or tax passed (optional)
-invoice_number = 56 # int | Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field is to help  override whatever value Paystack decides. Auto increment for subsequent invoices continue from this point. (optional)
-split_code = 'split_code_example' # str | The split code of the transaction split. (optional)
 
 # Update Payment Request
 
-response = paystack.PaymentRequest.update(id, customer=customer, amount=amount, currency=currency, due_date=due_date, description=description, line_items=line_items, tax=tax, send_notification=send_notification, draft=draft, has_invoice=has_invoice, invoice_number=invoice_number, split_code=split_code)
+response = paystack.PaymentRequest.update(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -475,15 +475,19 @@ Verify Payment Request
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
 
 # Verify Payment Request
 
-response = paystack.PaymentRequest.verify(id)
+response = paystack.PaymentRequest.verify(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters

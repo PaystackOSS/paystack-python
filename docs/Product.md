@@ -21,20 +21,25 @@ Create Product
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 name = 'name_example' # str | Name of product
 description = 'description_example' # str | The description of the product
 price = 56 # int | Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR
 currency = 'currency_example' # str | Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD
-limited = True # bool | Set to true if the product has limited stock. Leave as false if the product has unlimited stock (optional)
-quantity = 56 # int | Number of products in stock. Use if limited is true (optional)
 
 # Create Product
 
-response = paystack.Product.create(name, description, price, currency, limited=limited, quantity=quantity)
+response = paystack.Product.create(
+    name,
+    description,
+    price,
+    currency,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -80,15 +85,19 @@ Delete Product
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
 
 # Delete Product
 
-response = paystack.Product.delete(id)
+response = paystack.Product.delete(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -130,15 +139,19 @@ Fetch Product
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
 
 # Fetch Product
 
-response = paystack.Product.fetch(id)
+response = paystack.Product.fetch(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -180,19 +193,17 @@ List Products
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 56 # int |  (optional)
-page = 56 # int |  (optional)
-active = True # bool |  (optional)
-_from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
-to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
 # List Products
 
-response = paystack.Product.list(per_page=per_page, page=page, active=active, _from=_from, to=to)
+response = paystack.Product.list(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -238,21 +249,19 @@ Update product
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
-name = 'name_example' # str | Name of product (optional)
-description = 'description_example' # str | The description of the product (optional)
-price = 56 # int | Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR (optional)
-currency = 'currency_example' # str | Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD (optional)
-limited = True # bool | Set to true if the product has limited stock. Leave as false if the product has unlimited stock (optional)
-quantity = 56 # int | Number of products in stock. Use if limited is true (optional)
 
 # Update product
 
-response = paystack.Product.update(id, name=name, description=description, price=price, currency=currency, limited=limited, quantity=quantity)
+response = paystack.Product.update(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
