@@ -28,25 +28,23 @@ Charge Authorization
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 email = 'email_example' # str | Customer's email address
 amount = 56 # int | Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR
 authorization_code = 'authorization_code_example' # str | Valid authorization code to charge
-reference = 'reference_example' # str | Unique transaction reference. Only -, ., = and alphanumeric characters allowed. (optional)
-currency = 'currency_example' # str | The transaction currency (optional)
-metadata = 'metadata_example' # str | Stringified JSON object of custom data (optional)
-split_code = 'split_code_example' # str | The split code of the transaction split (optional)
-subaccount = 'subaccount_example' # str | The code for the subaccount that owns the payment (optional)
-transaction_charge = 'transaction_charge_example' # str | A flat fee to charge the subaccount for a transaction.  This overrides the split percentage set when the subaccount was created (optional)
-bearer = 'bearer_example' # str | The beare of the transaction charge (optional)
-queue = True # bool | If you are making a scheduled charge call, it is a good idea to queue them so the processing system does not get overloaded causing transaction processing errors. (optional)
 
 # Charge Authorization
 
-response = paystack.Transaction.charge_authorization(email, amount, authorization_code, reference=reference, currency=currency, metadata=metadata, split_code=split_code, subaccount=subaccount, transaction_charge=transaction_charge, bearer=bearer, queue=queue)
+response = paystack.Transaction.charge_authorization(
+    email,
+    amount,
+    authorization_code,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -97,18 +95,21 @@ Check Authorization
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 email = 'email_example' # str | Customer's email address
 amount = 56 # int | Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR
-authorization_code = 'authorization_code_example' # str | Valid authorization code to charge (optional)
-currency = 'currency_example' # str | The transaction currency (optional)
 
 # Check Authorization
 
-response = paystack.Transaction.check_authorization(email, amount, authorization_code=authorization_code, currency=currency)
+response = paystack.Transaction.check_authorization(
+    email,
+    amount,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -152,18 +153,17 @@ Export Transactions
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 56 # int | Number of records to fetch per page (optional)
-page = 56 # int | The section to retrieve (optional)
-_from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
-to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
 # Export Transactions
 
-response = paystack.Transaction.download(per_page=per_page, page=page, _from=_from, to=to)
+response = paystack.Transaction.download(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -208,15 +208,19 @@ Get Transaction Event
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
 
 # Get Transaction Event
 
-response = paystack.Transaction.event(id)
+response = paystack.Transaction.event(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -258,15 +262,19 @@ Fetch Transaction
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | The ID of the transaction to fetch
 
 # Fetch Transaction
 
-response = paystack.Transaction.fetch(id)
+response = paystack.Transaction.fetch(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -310,27 +318,21 @@ Create a new transaction
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 email = 'email_example' # str | Customer's email address
 amount = 56 # int | Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR
-currency = 'currency_example' # str | The transaction currency (optional)
-reference = 'reference_example' # str | Unique transaction reference. Only -, ., = and alphanumeric characters allowed. (optional)
-callback_url = 'callback_url_example' # str | Fully qualified url, e.g. https://example.com/ . Use this to override the callback url provided on the dashboard for this transaction (optional)
-plan = 'plan_example' # str | If transaction is to create a subscription to a predefined plan, provide plan code here.  This would invalidate the value provided in amount (optional)
-invoice_limit = 56 # int | Number of times to charge customer during subscription to plan (optional)
-metadata = 'metadata_example' # str | Stringified JSON object of custom data (optional)
-channels = 'channels_example' # list[str] | An array of payment channels to control what channels you want to make available to the user to make a payment with (optional)
-split_code = 'split_code_example' # str | The split code of the transaction split (optional)
-subaccount = 'subaccount_example' # str | The code for the subaccount that owns the payment (optional)
-transaction_charge = 'transaction_charge_example' # str | A flat fee to charge the subaccount for a transaction.  This overrides the split percentage set when the subaccount was created (optional)
-bearer = 'bearer_example' # str | The beare of the transaction charge (optional)
 
 # Initialize Transaction
 
-response = paystack.Transaction.initialize(email, amount, currency=currency, reference=reference, callback_url=callback_url, plan=plan, invoice_limit=invoice_limit, metadata=metadata, channels=channels, split_code=split_code, subaccount=subaccount, transaction_charge=transaction_charge, bearer=bearer)
+response = paystack.Transaction.initialize(
+    email,
+    amount,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -383,18 +385,17 @@ List Transactions
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 56 # int | Number of records to fetch per page (optional)
-page = 56 # int | The section to retrieve (optional)
-_from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
-to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
 # List Transactions
 
-response = paystack.Transaction.list(per_page=per_page, page=page, _from=_from, to=to)
+response = paystack.Transaction.list(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -439,20 +440,25 @@ Partial Debit
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 email = 'email_example' # str | Customer's email address
 amount = 56 # int | Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR
 authorization_code = 'authorization_code_example' # str | Valid authorization code to charge
 currency = 'currency_example' # str | The transaction currency
-reference = 'reference_example' # str | Unique transaction reference. Only -, ., = and alphanumeric characters allowed. (optional)
-at_least = 'at_least_example' # str | Minimum amount to charge (optional)
 
 # Partial Debit
 
-response = paystack.Transaction.partial_debit(email, amount, authorization_code, currency, reference=reference, at_least=at_least)
+response = paystack.Transaction.partial_debit(
+    email,
+    amount,
+    authorization_code,
+    currency,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -498,15 +504,19 @@ Get Transaction Session
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
 
 # Get Transaction Session
 
-response = paystack.Transaction.session(id)
+response = paystack.Transaction.session(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -548,15 +558,19 @@ Fetch Transaction Timeline
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id_or_reference = 'id_or_reference_example' # str | 
 
 # Fetch Transaction Timeline
 
-response = paystack.Transaction.timeline(id_or_reference)
+response = paystack.Transaction.timeline(
+    id_or_reference,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -598,18 +612,17 @@ Transaction Totals
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 56 # int | Number of records to fetch per page (optional)
-page = 56 # int | The section to retrieve (optional)
-_from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
-to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
 # Transaction Totals
 
-response = paystack.Transaction.totals(per_page=per_page, page=page, _from=_from, to=to)
+response = paystack.Transaction.totals(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -654,15 +667,19 @@ Verify Transaction
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 reference = 'reference_example' # str | The transaction reference to verify
 
 # Verify Transaction
 
-response = paystack.Transaction.verify(reference)
+response = paystack.Transaction.verify(
+    reference,
+)
+
 pprint(response)
 ```
 ### Parameters

@@ -22,15 +22,19 @@ Bulk Create Transfer Recipient
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 batch = paystack.TransferRecipientCreate() # list[TransferRecipientCreate] | A list of transfer recipient object. Each object should contain type, name, and bank_code.  Any Create Transfer Recipient param can also be passed.
 
 # Bulk Create Transfer Recipient
 
-response = paystack.TransferRecipient.bulk(batch)
+response = paystack.TransferRecipient.bulk(
+    batch,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -71,22 +75,25 @@ Create Transfer Recipient
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 type = 'type_example' # str | Recipient Type (Only nuban at this time)
 name = 'name_example' # str | Recipient's name
 account_number = 'account_number_example' # str | Recipient's bank account number
 bank_code = 'bank_code_example' # str | Recipient's bank code. You can get the list of Bank Codes by calling the List Banks endpoint
-description = 'description_example' # str | A description for this recipient (optional)
-currency = 'currency_example' # str | Currency for the account receiving the transfer (optional)
-authorization_code = 'authorization_code_example' # str | An authorization code from a previous transaction (optional)
-metadata = 'metadata_example' # str | Stringified JSON object of custom data (optional)
 
 # Create Transfer Recipient
 
-response = paystack.TransferRecipient.create(type, name, account_number, bank_code, description=description, currency=currency, authorization_code=authorization_code, metadata=metadata)
+response = paystack.TransferRecipient.create(
+    type,
+    name,
+    account_number,
+    bank_code,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -134,15 +141,19 @@ Fetch Transfer recipient
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | Transfer recipient code
 
 # Fetch Transfer recipient
 
-response = paystack.TransferRecipient.fetch(code)
+response = paystack.TransferRecipient.fetch(
+    code,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -184,18 +195,17 @@ List Transfer Recipients
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 56 # int | Number of records to fetch per page (optional)
-page = 56 # int | The section to retrieve (optional)
-_from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
-to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
 # List Transfer Recipients
 
-response = paystack.TransferRecipient.list(per_page=per_page, page=page, _from=_from, to=to)
+response = paystack.TransferRecipient.list(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -240,15 +250,19 @@ Delete Transfer Recipient
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | Transfer recipient code
 
 # Delete Transfer Recipient
 
-response = paystack.TransferRecipient.transferrecipient_code_delete(code)
+response = paystack.TransferRecipient.transferrecipient_code_delete(
+    code,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -290,17 +304,19 @@ Update Transfer recipient
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | Transfer recipient code
-name = 'name_example' # str | Recipient's name (optional)
-email = 'email_example' # str | Recipient's email address (optional)
 
 # Update Transfer recipient
 
-response = paystack.TransferRecipient.transferrecipient_code_put(code, name=name, email=email)
+response = paystack.TransferRecipient.transferrecipient_code_put(
+    code,
+)
+
 pprint(response)
 ```
 ### Parameters

@@ -18,16 +18,17 @@ Fetch Settlements
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 50 # int |  (optional)
-page = 2 # int |  (optional)
 
 # Fetch Settlements
 
-response = paystack.Settlement.fetch(per_page=per_page, page=page)
+response = paystack.Settlement.fetch(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -70,15 +71,19 @@ Settlement Transactions
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
 
 # Settlement Transactions
 
-response = paystack.Settlement.transaction(id)
+response = paystack.Settlement.transaction(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters

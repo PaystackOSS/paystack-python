@@ -22,15 +22,19 @@ Fetch Charges in a Batch
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | Batch code
 
 # Fetch Charges in a Batch
 
-response = paystack.BulkCharge.charges(code)
+response = paystack.BulkCharge.charges(
+    code,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -72,15 +76,19 @@ Fetch Bulk Charge Batch
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | Batch code
 
 # Fetch Bulk Charge Batch
 
-response = paystack.BulkCharge.fetch(code)
+response = paystack.BulkCharge.fetch(
+    code,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -122,14 +130,17 @@ Initiate Bulk Charge
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 
 # Initiate Bulk Charge
 
 response = paystack.BulkCharge.initiate()
+
+
 pprint(response)
 ```
 ### Parameters
@@ -167,18 +178,17 @@ List Bulk Charge Batches
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 56 # int | Number of records to fetch per page (optional)
-page = 56 # int | The section to retrieve (optional)
-_from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
-to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
 # List Bulk Charge Batches
 
-response = paystack.BulkCharge.list(per_page=per_page, page=page, _from=_from, to=to)
+response = paystack.BulkCharge.list(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -223,15 +233,19 @@ Pause Bulk Charge Batch
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | Batch code
 
 # Pause Bulk Charge Batch
 
-response = paystack.BulkCharge.pause(code)
+response = paystack.BulkCharge.pause(
+    code,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -273,15 +287,19 @@ Resume Bulk Charge Batch
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | Batch code
 
 # Resume Bulk Charge Batch
 
-response = paystack.BulkCharge.resume(code)
+response = paystack.BulkCharge.resume(
+    code,
+)
+
 pprint(response)
 ```
 ### Parameters

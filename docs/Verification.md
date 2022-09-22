@@ -21,17 +21,17 @@ List States (AVS)
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-type = 'type_example' # str |  (optional)
-country = 'country_example' # str |  (optional)
-currency = 'currency_example' # str |  (optional)
 
 # List States (AVS)
 
-response = paystack.Verification.avs(type=type, country=country, currency=currency)
+response = paystack.Verification.avs(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -75,21 +75,17 @@ Fetch Banks
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-country = 'country_example' # str |  (optional)
-pay_with_bank_transfer = True # bool |  (optional)
-use_cursor = True # bool |  (optional)
-per_page = 56 # int |  (optional)
-next = 'next_example' # str |  (optional)
-previous = 'previous_example' # str |  (optional)
-gateway = 'gateway_example' # str |  (optional)
 
 # Fetch Banks
 
-response = paystack.Verification.fetch_banks(country=country, pay_with_bank_transfer=pay_with_bank_transfer, use_cursor=use_cursor, per_page=per_page, next=next, previous=previous, gateway=gateway)
+response = paystack.Verification.fetch_banks(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -137,14 +133,17 @@ List Countries
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 
 # List Countries
 
 response = paystack.Verification.list_countries()
+
+
 pprint(response)
 ```
 ### Parameters
@@ -183,16 +182,17 @@ Resolve Account Number
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-account_number = 0022728151 # int |  (optional)
-bank_code = 063 # int |  (optional)
 
 # Resolve Account Number
 
-response = paystack.Verification.resolve_account_number(account_number=account_number, bank_code=bank_code)
+response = paystack.Verification.resolve_account_number(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -235,15 +235,19 @@ Resolve Card BIN
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 bin = 'bin_example' # str | 
 
 # Resolve Card BIN
 
-response = paystack.Verification.resolve_card_bin(bin)
+response = paystack.Verification.resolve_card_bin(
+    bin,
+)
+
 pprint(response)
 ```
 ### Parameters

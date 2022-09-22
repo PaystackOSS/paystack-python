@@ -19,19 +19,19 @@ Create Refund
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 transaction = 'transaction_example' # str | Transaction reference or id
-amount = 56 # int | Amount ( in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR ) to be refunded to the customer.  Amount cannot be more than the original transaction amount (optional)
-currency = 'currency_example' # str | Three-letter ISO currency. Allowed values are NGN, GHS, ZAR or USD (optional)
-customer_note = 'customer_note_example' # str | Customer reason (optional)
-merchant_note = 'merchant_note_example' # str | Merchant reason (optional)
 
 # Create Refund
 
-response = paystack.Refund.create(transaction, amount=amount, currency=currency, customer_note=customer_note, merchant_note=merchant_note)
+response = paystack.Refund.create(
+    transaction,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -76,15 +76,19 @@ Fetch Refund
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
 
 # Fetch Refund
 
-response = paystack.Refund.fetch(id)
+response = paystack.Refund.fetch(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -126,18 +130,17 @@ List Refunds
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 56 # int | Number of records to fetch per page (optional)
-page = 56 # int | The section to retrieve (optional)
-_from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
-to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
 # List Refunds
 
-response = paystack.Refund.list(per_page=per_page, page=page, _from=_from, to=to)
+response = paystack.Refund.list(
+)
+
 pprint(response)
 ```
 ### Parameters

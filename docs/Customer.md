@@ -23,19 +23,19 @@ Create Customer
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 email = 'email_example' # str | Customer's email address
-first_name = 'first_name_example' # str | Customer's first name (optional)
-last_name = 'last_name_example' # str | Customer's last name (optional)
-phone = 'phone_example' # str | Customer's phone number (optional)
-metadata = 'metadata_example' # str | Stringified JSON object of custom data (optional)
 
 # Create Customer
 
-response = paystack.Customer.create(email, first_name=first_name, last_name=last_name, phone=phone, metadata=metadata)
+response = paystack.Customer.create(
+    email,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -82,15 +82,19 @@ Deactivate a customer's card
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 authorization_code = 'authorization_code_example' # str | Authorization code to be deactivated
 
 # Deactivate Authorization
 
-response = paystack.Customer.deactivate_authorization(authorization_code)
+response = paystack.Customer.deactivate_authorization(
+    authorization_code,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -131,15 +135,19 @@ Fetch Customer
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | 
 
 # Fetch Customer
 
-response = paystack.Customer.fetch(code)
+response = paystack.Customer.fetch(
+    code,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -183,21 +191,17 @@ List customers on your integration
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-use_cursor = True # bool |  (optional)
-next = 'next_example' # str |  (optional)
-previous = 'previous_example' # str |  (optional)
-_from = '_from_example' # str |  (optional)
-to = 'to_example' # str |  (optional)
-per_page = 'per_page_example' # str |  (optional)
-page = 'page_example' # str |  (optional)
 
 # List Customers
 
-response = paystack.Customer.list(use_cursor=use_cursor, next=next, previous=previous, _from=_from, to=to, per_page=per_page, page=page)
+response = paystack.Customer.list(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -247,16 +251,19 @@ Set customer's risk action by whitelisting or blacklisting the customer
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 customer = 'customer_example' # str | Customer's code, or email address
-risk_action = 'risk_action_example' # str | One of the possible risk actions [ default, allow, deny ]. allow to whitelist.  deny to blacklist. Customers start with a default risk action.  (optional)
 
 # White/blacklist Customer
 
-response = paystack.Customer.risk_action(customer, risk_action=risk_action)
+response = paystack.Customer.risk_action(
+    customer,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -298,19 +305,19 @@ Update Customer
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | 
-first_name = 'first_name_example' # str | Customer's first name (optional)
-last_name = 'last_name_example' # str | Customer's last name (optional)
-phone = 'phone_example' # str | Customer's phone number (optional)
-metadata = 'metadata_example' # str | Stringified JSON object of custom data (optional)
 
 # Update Customer
 
-response = paystack.Customer.update(code, first_name=first_name, last_name=last_name, phone=phone, metadata=metadata)
+response = paystack.Customer.update(
+    code,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -358,9 +365,10 @@ Validate a customer's identity
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | 
 first_name = 'first_name_example' # str | Customer's first name
@@ -370,11 +378,20 @@ country = 'country_example' # str | Two-letter country code of identification is
 bvn = 'bvn_example' # str | Customer's Bank Verification Number
 bank_code = 'bank_code_example' # str | You can get the list of bank codes by calling the List Banks endpoint (https://api.paystack.co/bank).
 account_number = 'account_number_example' # str | Customer's bank account number.
-value = 'value_example' # str | Customer's identification number. Required if type is bvn (optional)
 
 # Validate Customer
 
-response = paystack.Customer.validatte(code, first_name, last_name, type, country, bvn, bank_code, account_number, value=value)
+response = paystack.Customer.validatte(
+    code,
+    first_name,
+    last_name,
+    type,
+    country,
+    bvn,
+    bank_code,
+    account_number,
+)
+
 pprint(response)
 ```
 ### Parameters

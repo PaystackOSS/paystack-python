@@ -23,18 +23,21 @@ Create Subscription
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 customer = 'customer_example' # str | Customer's email address or customer code
 plan = 'plan_example' # str | Plan code
-authorization = 'authorization_example' # str | If customer has multiple authorizations, you can set the desired authorization you wish to use for this subscription here.  If this is not supplied, the customer's most recent authorization would be used (optional)
-start_date = '2013-10-20T19:20:30+01:00' # datetime | Set the date for the first debit. (ISO 8601 format) e.g. 2017-05-16T00:30:13+01:00 (optional)
 
 # Create Subscription
 
-response = paystack.Subscription.create(customer, plan, authorization=authorization, start_date=start_date)
+response = paystack.Subscription.create(
+    customer,
+    plan,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -78,16 +81,21 @@ Disable Subscription
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | Subscription code
 token = 'token_example' # str | Email token
 
 # Disable Subscription
 
-response = paystack.Subscription.disable(code, token)
+response = paystack.Subscription.disable(
+    code,
+    token,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -129,16 +137,21 @@ Enable Subscription
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | Subscription code
 token = 'token_example' # str | Email token
 
 # Enable Subscription
 
-response = paystack.Subscription.enable(code, token)
+response = paystack.Subscription.enable(
+    code,
+    token,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -180,15 +193,19 @@ Fetch Subscription
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | 
 
 # Fetch Subscription
 
-response = paystack.Subscription.fetch(code)
+response = paystack.Subscription.fetch(
+    code,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -230,20 +247,17 @@ List Subscriptions
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 56 # int | Number of records to fetch per page (optional)
-page = 56 # int | The section to retrieve (optional)
-plan = 'plan_example' # str | Plan ID (optional)
-customer = 'customer_example' # str | Customer ID (optional)
-_from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
-to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
 # List Subscriptions
 
-response = paystack.Subscription.list(per_page=per_page, page=page, plan=plan, customer=customer, _from=_from, to=to)
+response = paystack.Subscription.list(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -290,15 +304,19 @@ Send Update Subscription Link
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | 
 
 # Send Update Subscription Link
 
-response = paystack.Subscription.manage_email(code)
+response = paystack.Subscription.manage_email(
+    code,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -339,15 +357,19 @@ Generate Update Subscription Link
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 code = 'code_example' # str | 
 
 # Generate Update Subscription Link
 
-response = paystack.Subscription.manage_link(code)
+response = paystack.Subscription.manage_link(
+    code,
+)
+
 pprint(response)
 ```
 ### Parameters

@@ -22,16 +22,21 @@ Add Products
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
 product = 'product_example' # list[str] | IDs of all products to add to a page
 
 # Add Products
 
-response = paystack.Page.add_products(id, product)
+response = paystack.Page.add_products(
+    id,
+    product,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -73,15 +78,19 @@ Check Slug Availability
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 slug = 'slug_example' # str | 
 
 # Check Slug Availability
 
-response = paystack.Page.check_slug_availability(slug)
+response = paystack.Page.check_slug_availability(
+    slug,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -123,21 +132,19 @@ Create Page
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 name = 'name_example' # str | Name of page
-description = 'description_example' # str | The description of the page (optional)
-amount = 56 # int | Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR (optional)
-slug = 'slug_example' # str | URL slug you would like to be associated with this page. Page will be accessible at https://paystack.com/pay/[slug] (optional)
-metadata = 'metadata_example' # str | Stringified JSON object of custom data (optional)
-redirect_url = 'redirect_url_example' # str | If you would like Paystack to redirect to a URL upon successful payment, specify the URL here. (optional)
-custom_fields = None # list[object] | If you would like to accept custom fields, specify them here. (optional)
 
 # Create Page
 
-response = paystack.Page.create(name, description=description, amount=amount, slug=slug, metadata=metadata, redirect_url=redirect_url, custom_fields=custom_fields)
+response = paystack.Page.create(
+    name,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -184,15 +191,19 @@ Fetch Page
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
 
 # Fetch Page
 
-response = paystack.Page.fetch(id)
+response = paystack.Page.fetch(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -234,18 +245,17 @@ List Pages
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
-per_page = 56 # int | Number of records to fetch per page (optional)
-page = 56 # int | The section to retrieve (optional)
-_from = '2013-10-20T19:20:30+01:00' # datetime | The start date (optional)
-to = '2013-10-20T19:20:30+01:00' # datetime | The end date (optional)
 
 # List Pages
 
-response = paystack.Page.list(per_page=per_page, page=page, _from=_from, to=to)
+response = paystack.Page.list(
+)
+
 pprint(response)
 ```
 ### Parameters
@@ -290,19 +300,19 @@ Update Page
 * Bearer Authentication (bearerAuth):
 ```python
 import paystack
-from paystack.rest import ApiException
 from pprint import pprint
 
+# Set your API key based on domain (test or live mode)
+paystack.api_key = 'sk_domain_xxxxxxxx'
 
 id = 'id_example' # str | 
-name = 'name_example' # str | Name of page (optional)
-description = 'description_example' # str | The description of the page (optional)
-amount = 56 # int | Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR (optional)
-active = True # bool | Set to false to deactivate page url (optional)
 
 # Update Page
 
-response = paystack.Page.update(id, name=name, description=description, amount=amount, active=active)
+response = paystack.Page.update(
+    id,
+)
+
 pprint(response)
 ```
 ### Parameters
