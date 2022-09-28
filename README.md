@@ -55,7 +55,7 @@ Class | Method | HTTP request | Description
 *Customer* | [**list**](docs/Customer.md#list) | **GET** /customer | List Customers
 *Customer* | [**risk_action**](docs/Customer.md#risk_action) | **POST** /customer/set_risk_action | White/blacklist Customer
 *Customer* | [**update**](docs/Customer.md#update) | **PUT** /customer/{code} | Update Customer
-*Customer* | [**validatte**](docs/Customer.md#validatte) | **POST** /customer/{code}/identification | Validate Customer
+*Customer* | [**validate**](docs/Customer.md#validate) | **POST** /customer/{code}/identification | Validate Customer
 *DedicatedVirtualAccount* | [**add_split**](docs/DedicatedVirtualAccount.md#add_split) | **POST** /dedicated_account/split | Split Dedicated Account Transaction
 *DedicatedVirtualAccount* | [**available_providers**](docs/DedicatedVirtualAccount.md#available_providers) | **GET** /dedicated_account/available_providers | Fetch Bank Providers
 *DedicatedVirtualAccount* | [**create**](docs/DedicatedVirtualAccount.md#create) | **POST** /dedicated_account | Create Dedicated Account
