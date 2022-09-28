@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**list**](Customer.md#list) | **GET** /customer | List Customers
 [**risk_action**](Customer.md#risk_action) | **POST** /customer/set_risk_action | White/blacklist Customer
 [**update**](Customer.md#update) | **PUT** /customer/{code} | Update Customer
-[**validatte**](Customer.md#validatte) | **POST** /customer/{code}/identification | Validate Customer
+[**validate**](Customer.md#validate) | **POST** /customer/{code}/identification | Validate Customer
 
 
 # **create**
@@ -353,8 +353,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **validatte**
-> Accepted validatte(code, first_name, last_name, type, country, bvn, bank_code, account_number, value=value)
+# **validate**
+> Accepted validate(code, first_name, last_name, type, country, bvn, bank_code, account_number, value=value)
 
 Validate Customer
 
@@ -381,7 +381,7 @@ account_number = 'account_number_example' # str | Customer's bank account number
 
 # Validate Customer
 
-response = paystack.Customer.validatte(
+response = paystack.Customer.validate(
     code,
     first_name,
     last_name,

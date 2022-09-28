@@ -458,7 +458,7 @@ class Customer(object):
 
 
     @classmethod
-    def validatte(cls, code, first_name, last_name, type, country, bvn, bank_code, account_number, **kwargs):  # noqa: E501
+    def validate(cls, code, first_name, last_name, type, country, bvn, bank_code, account_number, **kwargs):  # noqa: E501
         """Validate Customer  # noqa: E501
 
         Validate a customer's identity  # noqa: E501
@@ -504,42 +504,42 @@ class Customer(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method validatte" % key
+                    " to method validate" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'code' is set
         if cls().api_client.client_side_validation and ('code' not in local_var_params or  # noqa: E501
                                                         local_var_params['code'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `code` when calling `validatte`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `code` when calling `validate`")  # noqa: E501
         # verify the required parameter 'first_name' is set
         if cls().api_client.client_side_validation and ('first_name' not in local_var_params or  # noqa: E501
                                                         local_var_params['first_name'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `first_name` when calling `validatte`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `first_name` when calling `validate`")  # noqa: E501
         # verify the required parameter 'last_name' is set
         if cls().api_client.client_side_validation and ('last_name' not in local_var_params or  # noqa: E501
                                                         local_var_params['last_name'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `last_name` when calling `validatte`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `last_name` when calling `validate`")  # noqa: E501
         # verify the required parameter 'type' is set
         if cls().api_client.client_side_validation and ('type' not in local_var_params or  # noqa: E501
                                                         local_var_params['type'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `type` when calling `validatte`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `type` when calling `validate`")  # noqa: E501
         # verify the required parameter 'country' is set
         if cls().api_client.client_side_validation and ('country' not in local_var_params or  # noqa: E501
                                                         local_var_params['country'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `country` when calling `validatte`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `country` when calling `validate`")  # noqa: E501
         # verify the required parameter 'bvn' is set
         if cls().api_client.client_side_validation and ('bvn' not in local_var_params or  # noqa: E501
                                                         local_var_params['bvn'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `bvn` when calling `validatte`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `bvn` when calling `validate`")  # noqa: E501
         # verify the required parameter 'bank_code' is set
         if cls().api_client.client_side_validation and ('bank_code' not in local_var_params or  # noqa: E501
                                                         local_var_params['bank_code'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `bank_code` when calling `validatte`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `bank_code` when calling `validate`")  # noqa: E501
         # verify the required parameter 'account_number' is set
         if cls().api_client.client_side_validation and ('account_number' not in local_var_params or  # noqa: E501
                                                         local_var_params['account_number'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_number` when calling `validatte`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `account_number` when calling `validate`")  # noqa: E501
 
 
         path_params = {}
