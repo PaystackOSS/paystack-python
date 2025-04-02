@@ -8,7 +8,7 @@ live secret keys.
 
 ## Installation
 ```
-pip install paystacksdk
+pip install paystack-sdk
 ```
 You may need to run `pip` with root permission: `sudo pip install` 
 
